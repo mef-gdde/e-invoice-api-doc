@@ -1,0 +1,34 @@
+# API Endpoint Documentation: `/api/v1/token`
+
+## Description
+This endpoint is used to obtain a token for authentication.
+
+## Method
+`POST`
+
+## Authentication
+Basic authentication using `client_id` and `secret_key`.
+
+## Request Body
+No request body required.
+
+## Success Response
+http status code: 200
+
+| Key         | Definition                                                                                                                     |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------|
+| token       | The obtained authentication token.                                                                                             |
+| token_type  | The type of the token, usually "Bearer".                                                                                     |
+| expire_in   | The duration in seconds for which the token is valid. After this period, the token expires and a new one must be obtained.  |
+
+## Error Response 
+http status code: 401
+
+| Key               | Definition                                                                                  |
+|-------------------|---------------------------------------------------------------------------------------------|
+| error             | The error code indicating an invalid client.                                                 |
+| error_description | Description of the error, typically "Invalid client credentials" when client is unauthorized.|
+
+## Notes
+- The token received in the 200 response should be used as a Bearer token for subsequent requests requiring authentication.
+- Tokens expire after 900 seconds (15 minutes).

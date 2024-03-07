@@ -1,0 +1,27 @@
+# API Endpoint Documentation: `/api/v1/document/:document_id/pdf`
+
+## Description
+This endpoint is used to download the PDF file of a specific document identified by its ID.
+
+## Method
+`GET`
+
+## Authentication
+Bearer token authentication is required with the access token provided.
+
+## Path Parameters
+| Parameter   | Type   | Description                            |
+|-------------|--------|----------------------------------------|
+| document_id | String | The unique identifier of the document. |
+
+## Responses
+
+### HTTP Status 200 (OK)
+This response returns the PDF file of the specified document. The file can be downloaded by the client.
+
+### HTTP Status 404 (Not Found)
+This response occurs when the specified document ID does not exist.
+
+## Notes
+- The endpoint allows downloading the PDF file of a document identified by its ID.
+- Ensure that the client handles the file download appropriately.

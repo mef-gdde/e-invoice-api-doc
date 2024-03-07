@@ -1,0 +1,37 @@
+# API Endpoint Documentation: `/api/v1/taxpayer/validate`
+
+## Description
+This endpoint is used to validate taxpayer information.
+
+## Method
+`POST`
+
+## Authentication
+Bearer token authentication is required with the access token provided.
+
+## Request Body
+| Field            | Type    | Description                                      |
+|------------------|---------|--------------------------------------------------|
+| single_id        | String  | The single ID of the taxpayer.                   |
+| tin              | String  | The taxpayer identification number (TIN).        |
+| company_name_en  | String  | The company name in English.                     |
+| company_name_kh  | String  | The company name in Khmer (Cambodian language).  |
+
+### Example Request Body
+```json 
+{
+    "single_id": "1010016182",
+    "tin": "K008-902300031",
+    "company_name_en": "JAICODE CO., LTD.",
+    "company_name_kh": "ចៃកូដ ឯ.ក"
+}
+```
+## Response
+
+### HTTP Status 200 (OK)
+| Field   | Description                                    |
+|---------|------------------------------------------------|
+| isvalid | A boolean indicating whether the taxpayer is valid or not. |
+
+### HTTP Status 422 (Unprocessable Entity)
+This response occurs when the provided data are missing
