@@ -1,0 +1,137 @@
+# UBL Invoice
+# Invoice Field Definition
+| Field                 | Occuring |                         Defintion |
+|-----------------------|----------|-----------------------------------|
+|cbc:UBLVersionID       |1-1       | Version of UBL                    |
+|cbc:IssueDate          |1-1       | Invoice issue Date                |
+|cbc:InvoiceTypeCode    | 1-1      | Type of code of invoice           |
+
+
+## Sample of UBL Invoice 
+```xml
+<Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
+  <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
+  <cbc:ID>24030192110</cbc:ID>
+  <cbc:IssueDate>2024-03-05</cbc:IssueDate>
+  <cbc:InvoiceTypeCode listID="UN/ECE 1001 Subset">388</cbc:InvoiceTypeCode>
+  <cbc:DocumentCurrencyCode>USD</cbc:DocumentCurrencyCode>
+  <cbc:BuyerReference>Phaney</cbc:BuyerReference>
+  <cac:AccountingSupplierParty>
+    <cac:Party>
+      <cac:PartyName>
+        <cbc:Name>នាសារ៉ាថ្មី ឯ.ក</cbc:Name>
+      </cac:PartyName>
+      <cac:PostalAddress>
+        <cbc:StreetName>PP</cbc:StreetName>
+        <cbc:AdditionalStreetName/>
+        <cbc:CityName>Phnom Penh</cbc:CityName>
+        <cbc:PostalZone/>
+        <cac:Country>
+          <cbc:IdentificationCode>KH</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyTaxScheme>
+        <cbc:CompanyID>23144122</cbc:CompanyID>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:PartyTaxScheme>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName languageID="en">NEASARANEW CO., LTD.</cbc:RegistrationName>
+        <cbc:CompanyID>1010015172</cbc:CompanyID>
+      </cac:PartyLegalEntity>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName languageID="km">នាសារ៉ាថ្មី ឯ.ក</cbc:RegistrationName>
+        <cbc:CompanyID>1010015172</cbc:CompanyID>
+      </cac:PartyLegalEntity>
+      <cac:Contact>
+        <cbc:Name>Phaney</cbc:Name>
+        <cbc:Telephone>65453322224</cbc:Telephone>
+        <cbc:ElectronicMail>phenpani@gmail.com</cbc:ElectronicMail>
+      </cac:Contact>
+    </cac:Party>
+  </cac:AccountingSupplierParty>
+  <cac:AccountingCustomerParty>
+    <cac:Party>
+      <cac:PartyName>
+        <cbc:Name>នាសារ៉ាថ្មី ឯ.ក</cbc:Name>
+      </cac:PartyName>
+      <cac:PostalAddress>
+        <cbc:StreetName>PP</cbc:StreetName>
+        <cbc:AdditionalStreetName/>
+        <cbc:CityName>Phnom Penh</cbc:CityName>
+        <cbc:PostalZone/>
+        <cac:Country>
+          <cbc:IdentificationCode>KH</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyTaxScheme>
+        <cbc:CompanyID>23144122</cbc:CompanyID>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:PartyTaxScheme>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName languageID="en">NEASARANEW CO., LTD.</cbc:RegistrationName>
+        <cbc:CompanyID>1010015172</cbc:CompanyID>
+      </cac:PartyLegalEntity>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName languageID="km">នាសារ៉ាថ្មី ឯ.ក</cbc:RegistrationName>
+        <cbc:CompanyID>1010015172</cbc:CompanyID>
+      </cac:PartyLegalEntity>
+      <cac:Contact>
+        <cbc:Name>Phaney</cbc:Name>
+        <cbc:Telephone>65453322224</cbc:Telephone>
+        <cbc:ElectronicMail>phenpani@gmail.com</cbc:ElectronicMail>
+      </cac:Contact>
+    </cac:Party>
+  </cac:AccountingCustomerParty>
+  <cac:PrepaidPayment>
+    <cbc:PaidAmount currencyID="USD">0</cbc:PaidAmount>
+  </cac:PrepaidPayment>
+  <cac:TaxExchangeRate>
+    <cbc:SourceCurrencyCode>USD</cbc:SourceCurrencyCode>
+    <cbc:TargetCurrencyCode>KHR</cbc:TargetCurrencyCode>
+    <cbc:CalculationRate>4064</cbc:CalculationRate>
+  </cac:TaxExchangeRate>
+  <cac:TaxTotal>
+    <cbc:TaxAmount currencyID="USD">1</cbc:TaxAmount>
+    <cac:TaxSubtotal>
+      <cbc:TaxableAmount currencyID="USD">10</cbc:TaxableAmount>
+      <cbc:TaxAmount currencyID="USD">1</cbc:TaxAmount>
+      <cac:TaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>10</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:TaxCategory>
+    </cac:TaxSubtotal>
+  </cac:TaxTotal>
+  <cac:LegalMonetaryTotal>
+    <cbc:LineExtensionAmount currencyID="USD">10</cbc:LineExtensionAmount>
+    <cbc:TaxExclusiveAmount currencyID="USD">10</cbc:TaxExclusiveAmount>
+    <cbc:TaxInclusiveAmount currencyID="USD">11</cbc:TaxInclusiveAmount>
+    <cbc:PayableAmount currencyID="USD">11</cbc:PayableAmount>
+  </cac:LegalMonetaryTotal>
+  <cac:InvoiceLine>
+    <cbc:ID>1</cbc:ID>
+    <cbc:InvoicedQuantity unitCode="none">1</cbc:InvoicedQuantity>
+    <cbc:LineExtensionAmount currencyID="USD">10</cbc:LineExtensionAmount>
+    <cac:Item>
+      <cbc:Description>item1</cbc:Description>
+      <cbc:Name>item1</cbc:Name>
+      <cac:ClassifiedTaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>10</cbc:Percent>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:ClassifiedTaxCategory>
+    </cac:Item>
+    <cac:Price>
+      <cbc:PriceAmount currencyID="USD">10</cbc:PriceAmount>
+    </cac:Price>
+  </cac:InvoiceLine>
+</Invoice>
+```

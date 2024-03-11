@@ -1,0 +1,5 @@
+{
+    "invoice": "Invoice",
+    "credit-note": "Credit Note",
+    "debit-note": "Debit Note"
+}
