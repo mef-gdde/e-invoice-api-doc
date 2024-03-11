@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
-  "document": "API document",
-  "webhooks": "Webhook",
-  "ubl": "ubl",
-  "data-type": "Data type"
+  "document": "API Document",
+  "webhooks": "Webhooks",
+  "ubl": "UBL Fields",
+  "data-type": "Data Types"
 }
