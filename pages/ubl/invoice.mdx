@@ -3,16 +3,17 @@ The following table outlines the fields included in a UBL (Universal Business La
 ## Core Invoice Fields Definition
 | Data Field            | Occurrence |                        Definition |
 |-----------------------|:------------:|-----------------------------------|
-|[cbc:ID](./fields/ID.mdx) |	[1..1] |	Unique identifier for the invoice.|
+|[cbc:ID](./fields/ID.mdx) |	[1..1] |Unique identifier for the invoice.|
+|[cbc:IssueDate](./fields/IssueDate.mdx) |	[1..1] |Invoice issue date.
+|[cbc:DueDate](./fields/DueDate.mdx) |	[0..1] |  Free-form text pertinent to this document, conveying information that is not contained explicitly in other structures.
 |[cbc:DocumentCurrencyCode](./fields/DocumentCurrencyCode.mdx) |	[1..1]	|The currency in which the invoice is denominated.
-|[cac:AccountingSupplierParty](/test) |	[1..1] |	Party supplying the goods or services in the invoice.
-|[cac:AccountingCustomerParty](/test) |	[1..1] |	Party to whom the goods or services are supplied.
+|[cac:AccountingSupplierParty](./fields/AccountingSupplierParty.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
+|[cac:AccountingCustomerParty](./fields/AccountingCustomerParty.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
 |[cac:PrepaidPayment](/test) |	[0..n] |	Prepaid payment(s) applied to the invoice.
 |[cac:TaxExchangeRate](/test) |	[0..1] |	Exchange rate applied for tax calculation in invoices involving conversion.
 |[cac:TaxTotal](/test) |	[1..n] |	Total tax amount for the invoice.
 |[cac:LegalMonetaryTotal](/test) | [1..1] |	Total amounts for the invoice.
 |[cac:InvoiceLine](/test) |	[1..n] |	Each individual line item of the invoice.
-|[cbc:IssueDate](/test) |	[1..1] |	Invoice issue Date.
 |[cbc:InvoiceTypeCode](/test) |	[1..1] |	Type of code of invoice.
 |[cbc:DocumentCurrencyCode](/test) |[1..1] |	Currency of the invoice amounts.
 |[cbc:TaxAmount](/test) |[1..n]|	Tax amount for a specific tax category.
