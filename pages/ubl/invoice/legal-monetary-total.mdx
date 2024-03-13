@@ -1,0 +1,18 @@
+# cac:LegalMonetaryTotal
+The total monetary amount that legally binds the parties to the transaction, covering the entire scope of the transaction.
+
+## About
+* Occurrence: [1..1]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child elements
+
+| Data Field                                        | Occurrence | Definition |
+|---------------------------------------------------|:----------:|------------|
+| [cbc:LineExtensionAmount](./LineExtensionAmount.mdx)       |   [0..1]   | The monetary amount of an extended transaction line, net of tax and settlement discounts, but inclusive of any applicable rounding amount. |
+| [cbc:TaxExclusiveAmount](./TaxExclusiveAmount.mdx)         |   [0..1]   | The monetary amount of an extended transaction line, exclusive of taxes. |
+| [cbc:TaxInclusiveAmount](./TaxInclusiveAmount.mdx)         |   [0..1]   | The monetary amount including taxes; the sum of payable amount and prepaid amount. |
+| [cbc:AllowanceTotalAmount](./AllowanceTotalAmount.mdx)     |   [0..1]   | The total monetary amount of all allowances. |
+| [cbc:ChargeTotalAmount](./ChargeTotalAmount.mdx)           |   [0..1]   | The total monetary amount of all charges. |
+| [cbc:PrepaidAmount](./PrepaidAmount.mdx)                   |   [0..1]   | The total prepaid monetary amount. |
+| [cbc:PayableAmount](./PayableAmount.mdx)                   |   [1..1]   | The amount of the monetary total to be paid. |

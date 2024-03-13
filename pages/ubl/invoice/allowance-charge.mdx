@@ -1,0 +1,15 @@
+# cac:AllowanceCharge
+The conditions and amounts associated with an allowance or charge.
+
+## About
+* Occurrence: [0..1]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child elements
+
+| Data Field                                        | Occurrence | Definition |
+|---------------------------------------------------|:----------:|------------|
+| [cbc:ChargeIndicator](./ChargeIndicator.mdx)      |   [1..1]   | An indicator that this AllowanceCharge describes a charge (true) or a discount (false). |
+| [cbc:AllowanceChargeReason](./AllowanceChargeReason.mdx)         | [0..*] | The reason for this allowance or charge. |
+| [cbc:Amount](./Amount.mdx)                                       | [1..1] | The monetary amount of this allowance or charge to be applied. |
+| [cac:TaxTotal](./TaxTotal.mdx)                                   | [0..1] | The total of all the taxes applicable to this allowance or charge. |

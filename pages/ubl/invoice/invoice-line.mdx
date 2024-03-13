@@ -1,0 +1,18 @@
+# cac:InvoiceLine
+A specific line of an invoice that describes a product or service included in the invoice.
+
+## About
+* Occurrence: [1..n]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child elements
+
+| Data Field                                      | Occurrence | Definition |
+|-------------------------------------------------|:----------:|------------|
+| [cbc:ID](./ID.mdx)                              |   [1..1]   | An identifier for this invoice line. |
+| [cbc:InvoicedQuantity](./InvoicedQuantity.mdx)  |   [0..1]   | The quantity (of items) on this invoice line. |
+| [cbc:LineExtensionAmount](./LineExtensionAmount.mdx) | [1..1] | The total amount for this invoice line, including allowance charges but net of taxes. |
+| [cac:AllowanceCharge](./AllowanceCharge.mdx)    |   [0..*]   | An allowance or charge associated with this invoice line. |
+| [cac:TaxTotal](./TaxTotal.mdx)                  |   [0..*]   | A total amount of taxes of a particular kind applicable to this invoice line. |
+| [cac:Item](./Item.mdx)                          |   [1..1]   | The item associated with this invoice line. |
+| [cac:Price](./Price.mdx)                        |   [0..1]   | The price of the item associated with this invoice line. |

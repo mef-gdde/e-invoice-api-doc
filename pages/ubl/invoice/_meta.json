@@ -1,0 +1,15 @@
+{   
+    "id": "ID",
+    "issue-date": "IssueDate",
+    "due-date": "DueDate",
+    "invoice-type-code": "InvoiceTypeCode",
+    "document-currency-code": "DocumentCurrencyCode",
+    
+    "accounting-supplier-party": "AccountingSupplierParty",
+    "accounting-customer-party": "AccountingCustomerParty",
+    "allowance-charge": "AllowanceCharge",
+    "tax-exchange-rate": "TaxExchangeRate",
+    "tax-total": "TaxTotal",
+    "legal-monetary-total": "LegalMonetaryTotal",
+    "invoice-line": "InvoiceLine"
+}

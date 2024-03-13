@@ -3,26 +3,18 @@ The following table outlines the fields included in a UBL (Universal Business La
 ## Core Invoice Fields Definition
 | Data Field            | Occurrence |                        Definition |
 |-----------------------|:------------:|-----------------------------------|
-|[cbc:ID](./fields/ID.mdx) |	[1..1] |Unique identifier for the invoice.|
-|[cbc:IssueDate](./fields/IssueDate.mdx) |	[1..1] |Invoice issue date.
-|[cbc:DueDate](./fields/DueDate.mdx) |	[0..1] |  Free-form text pertinent to this document, conveying information that is not contained explicitly in other structures.
-|[cbc:DocumentCurrencyCode](./fields/DocumentCurrencyCode.mdx) |	[1..1]	|The currency in which the invoice is denominated.
-|[cac:AccountingSupplierParty](./fields/AccountingSupplierParty.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
-|[cac:AccountingCustomerParty](./fields/AccountingCustomerParty.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
-|[cac:PrepaidPayment](/test) |	[0..n] |	Prepaid payment(s) applied to the invoice.
-|[cac:TaxExchangeRate](/test) |	[0..1] |	Exchange rate applied for tax calculation in invoices involving conversion.
-|[cac:TaxTotal](/test) |	[1..n] |	Total tax amount for the invoice.
-|[cac:LegalMonetaryTotal](/test) | [1..1] |	Total amounts for the invoice.
-|[cac:InvoiceLine](/test) |	[1..n] |	Each individual line item of the invoice.
-|[cbc:InvoiceTypeCode](/test) |	[1..1] |	Type of code of invoice.
-|[cbc:DocumentCurrencyCode](/test) |[1..1] |	Currency of the invoice amounts.
-|[cbc:TaxAmount](/test) |[1..n]|	Tax amount for a specific tax category.
-|[cbc:LineExtensionAmount](/test) |[1..n]|	Amount for a line item, excluding taxes.
-|[cbc:TaxExclusiveAmount](/test)	|[1..1]|	Amount excluding taxes.
-|[cbc:TaxInclusiveAmount](/test) |[1..1]|	Amount including taxes.
-|[cbc:PayableAmount](/test) |[1..1]| Total amount payable.
-
-
+|[cbc:ID](./invoice/id.mdx) |	[1..1] |Unique identifier for the invoice.|
+|[cbc:IssueDate](./invoice/issue-date.mdx) |	[1..1] |Invoice issue date.
+|[cbc:DueDate](./invoice/due-date.mdx) |	[0..1] |  Free-form text pertinent to this document, conveying information that is not contained explicitly in other structures.
+|[cbc:InvoiceTypeCode](./invoice/invoice-type-code.mdx) | [0..1] |   A code signifying the type of the Invoice.
+|[cbc:DocumentCurrencyCode](./invoice/document-currency-code.mdx) |	[1..1]	|The currency in which the invoice is denominated.
+|[cac:AccountingSupplierParty](./invoice/accounting-supplier-party.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
+|[cac:AccountingCustomerParty](./invoice/accounting-customer-party.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
+|[cac:AllowanceCharge](./invoice/allowance-charge.mdx) |	[1..n] |	Total tax amount for the invoice.
+|[cac:TaxExchangeRate](./invoice/tax-exchange-rate.mdx) |	[0..1] |	Exchange rate applied for tax calculation in invoices involving conversion, mandatory if document currency is not Khmer Riel(KHR).
+|[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..n] |	Total tax amount for the invoice.
+|[cac:LegalMonetaryTotal](./invoice/legal-monetary-total.mdx) | [1..1] |	Total amounts for the invoice.
+|[cac:InvoiceLine](./invoice/invoice-line.mdx) |	[1..n] |	Each individual line item of the invoice.
 
 ## Sample of UBL Invoice 
 ```xml
