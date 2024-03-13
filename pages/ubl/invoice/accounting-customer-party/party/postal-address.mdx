@@ -19,8 +19,10 @@ The address of the party.
 | [cbc:PostalZone](./PostalZone)              |   [0..1]   | The postal identifier for this address according to the relevant national postal service, such as a ZIP code or Post Code. |
 | [cac:Country](./Country)                    |   [0..1]   | The country in which this address is situated. |
 
+
 ```xml 
 <cac:PostalAddress>
+    <cbc:ID schemeID="GLN" schemeAgencyID="9">1231412341324</cbc:ID>
     <cbc:StreetName>Main street</cbc:StreetName>
     <cbc:AdditionalStreetName>Suite 123</cbc:AdditionalStreetName>
     <cbc:BuildingNumber>1</cbc:BuildingNumber>

@@ -1,5 +1,5 @@
 export default {
-  logo: <span>Caminv API-DOc</span>,
+  logo: <span>Caminv API-Documentation</span>,
   project: {
     link: 'https://github.com/shuding/nextra'
   }

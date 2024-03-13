@@ -1,0 +1,24 @@
+# cac:PartyLegalEntity
+Details of the legal entity associated with the party.
+
+## About
+* Occurrence: [1..1]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child elements
+
+| Data Field                                  | Occurrence | Definition |
+|---------------------------------------------|:----------:|------------|
+| [cbc:RegistrationName](./RegistrationName.mdx)           |   [0..1]   | The name of the party as registered with the relevant legal authority. |
+| [cbc:CompanyID](./CompanyID.mdx)                        |   [0..1]   | An identifier for the party as registered within a company registration scheme. |
+
+```xml 
+<cac:PartyLegalEntity>
+    <cbc:RegistrationName languageID="en">Company Khor</cbc:RegistrationName>
+    <cbc:CompanyID>1010015172</cbc:CompanyID>
+</cac:PartyLegalEntity>
+<cac:PartyLegalEntity>
+    <cbc:RegistrationName languageID="km">ក្រុមហ៊ុន ក</cbc:RegistrationName>
+    <cbc:CompanyID>1010015172</cbc:CompanyID>
+</cac:PartyLegalEntity>
+```
