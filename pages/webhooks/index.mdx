@@ -1,2 +1,20 @@
 # Webhook
-You can the document notification update by setting webhook url on [setting](https://caminv-dev-merc.mef.gov.kh/setting) with tab Credential
+You can the document notification update by setting webhook url on [setting](https://caminv-dev-merc.mef.gov.kh/setting) with tab Credential.
+
+This webhook URL use for the updating from Caminv such as **Invoice Received** and **Invoice Sent**
+- **Invoice Sent**: This Event will send to supplier after the invoice attest and store in blockchain.
+- **Invoice Received**: This Event will send to customer after the invoice attest and store in blockchain.
+
+## What happen when Caminv can't send the invoice to destination?
+Caminv will retry triggered again and again after having failed transaction sending to supplier/customer.
+
+import React from 'react'
+import {Callout, Bleed} from 'nextra-theme-docs'
+
+
+<Callout type="info" emoji="🦤">
+  The webhook will retry **5 times** once each next hour. If the transaction still failed Caminv will stop the automatic send for that invoice.
+
+  Supplier still can manaully sent via send invoice API.
+</Callout>
+

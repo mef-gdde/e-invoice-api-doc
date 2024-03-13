@@ -1,1 +1,17 @@
-Doc
+![](https://caminv-dev-bof.mef.gov.kh/image/logo.png)
+
+# Caminv API Document
+
+## About
+
+CamInv is an electronic invoicing, a digital solution that replaces traditional paper-based billing systems. It enables business to create, send and receive invoice electronically, optimizing financial workflows.
+
+Our system is developed with robust validation checks and compliance feature while adhering to relevant laws and regulations. Invoices are sent through secure and standardized channels.
+
+## How it work
+As a supplier can generate an E-invoice with the UBL(Universal Buesiness Language) XML format on their own system or on the provided merchant portal. The generated E-invoice can send via Caminv network.
+
+![](./workflow.png)
+
+Caminv will validate the invoice format and all the require field in that UBL, If the Validation passed then Caminv validate the EKYB both customer and supplier. After eventhing is fine Caminv will attest and store the invoice with blockchain in [CamDL](https://camdl.gov.kh/).
+After hashing and store Caminv will trigger send to both **sender** and **receiver** system via [Webhook](./webhooks/webhook-events.mdx)
