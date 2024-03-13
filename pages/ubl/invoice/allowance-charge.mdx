@@ -13,3 +13,17 @@ The conditions and amounts associated with an allowance or charge.
 | [cbc:AllowanceChargeReason](./AllowanceChargeReason.mdx)         | [0..*] | The reason for this allowance or charge. |
 | [cbc:Amount](./Amount.mdx)                                       | [1..1] | The monetary amount of this allowance or charge to be applied. |
 | [cac:TaxTotal](./TaxTotal.mdx)                                   | [0..1] | The total of all the taxes applicable to this allowance or charge. |
+
+## Example
+```xml
+<cac:AllowanceCharge>
+    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReason>Packing cost</cbc:AllowanceChargeReason>
+    <cbc:Amount currencyID="KHR">10000</cbc:Amount>
+</cac:AllowanceCharge>
+<cac:AllowanceCharge>
+    <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+    <cbc:AllowanceChargeReason>Promotion discount</cbc:AllowanceChargeReason>
+    <cbc:Amount currencyID="KHR">20000</cbc:Amount>
+</cac:AllowanceCharge>
+```

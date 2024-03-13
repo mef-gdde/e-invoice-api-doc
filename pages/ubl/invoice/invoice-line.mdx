@@ -16,3 +16,38 @@ A specific line of an invoice that describes a product or service included in th
 | [cac:TaxTotal](./TaxTotal.mdx)                  |   [0..*]   | A total amount of taxes of a particular kind applicable to this invoice line. |
 | [cac:Item](./Item.mdx)                          |   [1..1]   | The item associated with this invoice line. |
 | [cac:Price](./Price.mdx)                        |   [0..1]   | The price of the item associated with this invoice line. |
+
+## Example
+```xml
+<cac:InvoiceLine>
+   <cbc:ID>1</cbc:ID>
+   <cbc:InvoicedQuantity>1</cbc:InvoicedQuantity>
+   <cbc:LineExtensionAmount currencyID="USD">900</cbc:LineExtensionAmount>
+   <cac:AllowanceCharge>
+      <cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+      <cbc:AllowanceChargeReason>Discount</cbc:AllowanceChargeReason>
+      <cbc:Amount currencyID="USD">100</cbc:Amount>
+   </cac:AllowanceCharge>
+   <cac:TaxTotal>
+      <cbc:TaxAmount currencyID="USD">90</cbc:TaxAmount>
+      <cac:TaxSubtotal>
+         <cbc:TaxableAmount currencyID="USD">900</cbc:TaxableAmount>
+         <cbc:TaxAmount currencyID="USD">90</cbc:TaxAmount>
+         <cac:TaxCategory>
+            <cbc:ID>S</cbc:ID>
+            <cbc:Percent>10</cbc:Percent>
+            <cac:TaxScheme>
+               <cbc:ID>VAT</cbc:ID> 
+            </cac:TaxScheme>
+         </cac:TaxCategory>
+      </cac:TaxSubtotal>
+   </cac:TaxTotal>
+   <cac:Item>
+      <cbc:Description>Processor: Intel Core 2 Duo SU9400</cbc:Description>
+      <cbc:Name>Labtop computer</cbc:Name>
+   </cac:Item>
+   <cac:Price>
+      <cbc:PriceAmount currencyID="USD">1000</cbc:PriceAmount>
+   </cac:Price>
+</cac:InvoiceLine>
+```

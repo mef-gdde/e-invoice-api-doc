@@ -18,3 +18,16 @@ The address of the party.
 | [cbc:CityName](./CityName)                  |   [0..1]   | The name of a city, town, or village. |
 | [cbc:PostalZone](./PostalZone)              |   [0..1]   | The postal identifier for this address according to the relevant national postal service, such as a ZIP code or Post Code. |
 | [cac:Country](./Country)                    |   [0..1]   | The country in which this address is situated. |
+
+```xml 
+<cac:PostalAddress>
+    <cbc:StreetName>Main street</cbc:StreetName>
+    <cbc:AdditionalStreetName>Suite 123</cbc:AdditionalStreetName>
+    <cbc:BuildingNumber>1</cbc:BuildingNumber>
+    <cbc:CityName>Phnom Penh</cbc:CityName>
+    <cbc:PostalZone>12100</cbc:PostalZone>
+    <cac:Country>
+        <cbc:IdentificationCode>KH</cbc:IdentificationCode>
+    </cac:Country>
+</cac:PostalAddress>
+```

@@ -11,3 +11,16 @@ The aggregate tax amount for a specific taxation scheme.
 |--------------------------------------------------|:----------:|------------|
 | [cbc:TaxAmount](./TaxAmount.mdx)                 |   [1..1]   | The total tax amount for a particular taxation scheme, e.g., VAT; the sum of the tax subtotals for each tax category within the taxation scheme. |
 | [cac:TaxSubtotal](./TaxSubtotal.mdx)             |   [0..*]   | One of the subtotals the sum of which equals the total tax amount for a particular taxation scheme. |
+
+## Example
+```xml
+<cac:TaxTotal>
+    <cbc:TaxAmount currencyID="KHR">10000</cbc:TaxAmount>
+    <cac:TaxSubtotal>
+        ...
+    </cac:TaxSubtotal>
+    <cac:TaxSubtotal>
+        ...
+    </cac:TaxSubtotal>
+</cac:TaxTotal>
+```

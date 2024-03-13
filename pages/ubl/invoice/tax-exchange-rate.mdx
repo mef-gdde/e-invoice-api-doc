@@ -1,5 +1,5 @@
 # cac:TaxExchangeRate
-The exchange rate applicable to the tax amount in a different currency.
+The exchange rate is applicable to the tax amount in a different currency. Only required when the document currency is not the tax currency (KHR).
 
 ## About
 * Occurrence: [1..1]
@@ -13,3 +13,11 @@ The exchange rate applicable to the tax amount in a different currency.
 | [cbc:TargetCurrencyCode](./TargetCurrencyCode.mdx)        |   [1..1]   | The target currency for this exchange rate; the currency to which the exchange is being made. |
 | [cbc:CalculationRate](./CalculationRate.mdx)              |   [1..1]   | The factor/rate applied to the source currency to calculate the target currency. |
 
+## Example
+```xml
+<cac:TaxExchangeRate>
+    <cbc:SourceCurrencyCode>USD</cbc:SourceCurrencyCode>
+    <cbc:TargetCurrencyCode>KHR</cbc:TargetCurrencyCode>
+    <cbc:CalculationRate>4100</cbc:CalculationRate>
+</cac:TaxExchangeRate>
+```

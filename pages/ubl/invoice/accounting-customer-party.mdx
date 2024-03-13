@@ -1,5 +1,5 @@
 # cac:AccountingCustomerParty
- The accounting supplier party.
+ The accounting customer party.
 ## About
 * Occurence: [1..1]
 * Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
@@ -7,4 +7,13 @@
 ## Child elements
 | Data Field            | Occurrence |                        Definition |
 |-----------------------|:------------:|-----------------------------------|
-|[cac:Party](./Party.mdx) |	[1..1] |The customer party itself.|
+|[cac:Party](./accounting-customer-party/party.mdx) |	[1..1] |The customer party itself.|
+
+## Example
+```xml
+<cac:AccountingCustomerParty>
+    <cac:Party>
+        ...
+    </cac:Party>
+</cac:AccountingCustomerParty>
+```
