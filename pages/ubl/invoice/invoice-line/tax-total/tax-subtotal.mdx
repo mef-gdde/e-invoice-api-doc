@@ -1,0 +1,29 @@
+# cac:TaxSubtotal
+Element information for a tax subtotal.
+
+## About
+* Occurrence: [0..n]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child elements
+
+| Data Field                          | Occurrence | Definition                                                                                          |
+|-------------------------------------|:----------:|-----------------------------------------------------------------------------------------------------|
+| [cbc:TaxableAmount](./tax-subtotal/taxable-amount.mdx)              |   [0..1]   | The net amount to which the tax percent (rate) is applied to calculate the tax amount.             |
+| [cbc:TaxAmount](./tax-subtotal/tax-amount.mdx)         |   [1..1]   | The amount of this tax subtotal.                                                                   |
+| [cac:TaxCategory](./tax-subtotal/tax-category.mdx)                    |   [1..1]   | The tax category applicable to this subtotal.                                                      |
+
+## Example
+
+```xml 
+<cac:TaxSubtotal>
+    <cbc:TaxableAmount currencyID="USD">10</cbc:TaxableAmount>
+    <cbc:TaxAmount currencyID="USD">1</cbc:TaxAmount>
+    <cac:TaxCategory>
+        <cbc:ID>S</cbc:ID>
+        <cbc:Percent>10</cbc:Percent>
+        <cac:TaxScheme>
+            <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+    </cac:TaxCategory>
+</cac:TaxSubtotal>

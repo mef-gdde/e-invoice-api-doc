@@ -1,7 +1,6 @@
+# cbc:LineExtensionAmount
 
-# cbc:TaxAmount
-
-The total tax amount for a particular taxation scheme, e.g., VAT; the sum of the tax subtotals for each tax category within the taxation scheme.
+The monetary amount of an extended transaction line, net of tax and settlement discounts, but inclusive of any applicable rounding amount.
 
 ## About
 
@@ -12,9 +11,9 @@ The total tax amount for a particular taxation scheme, e.g., VAT; the sum of the
 
 | Name        | Occurrence | Type        | Description                                            |
 |-------------|:----------:|-------------|--------------------------------------------------------|
-| currencyID  |   [1..1]   | xsd:string  | The identifier of the currency used for the tax amount. |
+| currencyID  |   [1..1]   | xsd:string  | The identifier of the currency used in the transaction. |
 
 ## Example
 
 ```xml
-<cbc:TaxAmount currencyID="KHR">25.00</cbc:TaxAmount>
+<cbc:LineExtensionAmount currencyID="USD">100.00</cbc:LineExtensionAmount>
