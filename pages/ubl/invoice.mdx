@@ -1,17 +1,30 @@
 # UBL Invoice
-The following table outlines the fields included in a UBL (Universal Business Language) invoice, their occurrence, their examples, and their definitions.
+The table below presents the essential fields required for a UBL (Universal Business Language) invoice. These fields conform to the structure defined in UBL 2.1 Invoice. It provides details such as occurrence, examples, and definitions of each field. Only relevant and mandatory fields for the General Department of Taxation (GDT), as well as commonly used fields, are included.
+
+Reference:
+* [UBL 2.1 Invoice Schema](https://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd)
+* [UBL 2.1 Common Schema](https://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/common/) 
+* [UBL 2.1 Invoice Documentation](http://www.datypic.com/sc/ubl21/e-ns39_Invoice.html) 
+
+## Attributes
+| Name                   | Occurrence | Description                                               |
+|------------------------|:----------:|-----------------------------------------------------------|
+| xmlns:cac             |   [1..1]   | Namespace for Common Aggregate Components, always set to "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2".    |
+| xmlns:cbc             |   [1..1]  | Namespace for Common Basic Components, always set to "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2". |
+| xmlns                 |   [1..1]   | Namespace for Invoice Schema, always set to "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2". |
+
 ## Core Invoice Fields Definition
 | Data Field            | Occurrence |                        Definition |
 |-----------------------|:------------:|-----------------------------------|
 |[cbc:ID](./invoice/id.mdx) |	[1..1] |An identifier for this document, assigned by the sender.|
-|[cbc:IssueDate](./invoice/issue-date.mdx) |	[1..1] |Invoice issue date.
-|[cbc:DueDate](./invoice/due-date.mdx) |	[0..1] |  Free-form text pertinent to this document, conveying information that is not contained explicitly in other structures.
+|[cbc:IssueDate](./invoice/issue-date.mdx) |	[1..1] | The date, assigned by the sender, on which this document was issued.
+|[cbc:DueDate](./invoice/due-date.mdx) |	[0..1] | The date on which invoice is due.
 |[cbc:InvoiceTypeCode](./invoice/invoice-type-code.mdx) | [0..1] |   A code signifying the type of the Invoice.
-|[cbc:DocumentCurrencyCode](./invoice/document-currency-code.mdx) |	[1..1]	|The currency in which the invoice is denominated.
+|[cbc:DocumentCurrencyCode](./invoice/document-currency-code.mdx) |	[1..1]	|The currency in which the invoice is using.
 |[cac:AccountingSupplierParty](./invoice/accounting-supplier-party.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
 |[cac:AccountingCustomerParty](./invoice/accounting-customer-party.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
 |[cac:AllowanceCharge](./invoice/allowance-charge.mdx) |	[1..n] |	Total tax amount for the invoice.
-|[cac:TaxExchangeRate](./invoice/tax-exchange-rate.mdx) |	[0..1] |	Exchange rate applied for tax calculation in invoices involving conversion, mandatory if document currency is not Khmer Riel(KHR).
+|[cac:TaxExchangeRate](./invoice/tax-exchange-rate.mdx) |	[1..1] |	Exchange rate applied for tax calculation in invoices involving conversion, mandatory if document currency is not Khmer Riel(KHR).
 |[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..n] |	Total tax amount for the invoice.
 |[cac:LegalMonetaryTotal](./invoice/legal-monetary-total.mdx) | [1..1] |	Total amounts for the invoice.
 |[cac:InvoiceLine](./invoice/invoice-line.mdx) |	[1..n] |	Each individual line item of the invoice.
