@@ -1,5 +1,7 @@
 # UBL Invoice
-The table below presents the essential fields required for a UBL (Universal Business Language) invoice. These fields conform to the structure defined in UBL 2.1 Invoice. It provides details such as occurrence, examples, and definitions of each field. Only relevant and mandatory fields for the General Department of Taxation (GDT), as well as commonly used fields, are included.
+The table below presents the essential fields required for a UBL (Universal Business Language) invoice. These fields conform to the structure defined in UBL 2.1 Invoice. It provides details such as occurrence, examples, and definitions of each field. Only relevant and mandatory fields for the General Department of Taxation (GDT), as well as commonly used fields, are included. 
+
+Ensure that when creating and submitting your document, the fields are listed in the exact sequential order as below.
 
 Reference:
 * [UBL 2.1 Invoice Schema](https://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd)
@@ -24,8 +26,8 @@ Reference:
 |[cac:AccountingSupplierParty](./invoice/accounting-supplier-party.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
 |[cac:AccountingCustomerParty](./invoice/accounting-customer-party.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
 |[cac:AllowanceCharge](./invoice/allowance-charge.mdx) |	[1..n] |	Total tax amount for the invoice.
-|[cac:TaxExchangeRate](./invoice/tax-exchange-rate.mdx) |	[1..1] |	Exchange rate applied for tax calculation in invoices involving conversion, mandatory if document currency is not Khmer Riel(KHR).
-|[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..n] |	Total tax amount for the invoice.
+|[cac:TaxExchangeRate](./invoice/tax-exchange-rate.mdx) |	[0..1] |	Exchange rate applied for tax calculation in invoices involving conversion, mandatory if document currency is not Khmer Riel(KHR).
+|[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..1] |	Total tax amount for the invoice.
 |[cac:LegalMonetaryTotal](./invoice/legal-monetary-total.mdx) | [1..1] |	Total amounts for the invoice.
 |[cac:InvoiceLine](./invoice/invoice-line.mdx) |	[1..n] |	Each individual line item of the invoice.
 
