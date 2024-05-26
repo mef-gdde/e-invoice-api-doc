@@ -2,6 +2,7 @@
   "getting-start": "Getting Start",
   "authentication": "Authentication",
   "validate-taxpayer": "Validate Taxapyer",
-  "submit-document": "Submit Documents"
-  
+  "submit-document": "Submit Documents",
+  "accept-document": "Accept Documents",
+  "reject-document": "Reject Documents"
 }
