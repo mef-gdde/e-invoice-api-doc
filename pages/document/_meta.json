@@ -1,6 +1,8 @@
 {
-  "getting-start": "Getting Start",
-  "authentication": "Authentication",
+  
+  "connect": "Getting Start - OAuth2.0 Connect with Service Provider",
+  "authentication": "Get New Access Token",
+  "caminvoice-member-list": "CamInvoice Member List",
   "validate-taxpayer": "Validate Taxapyer",
   "submit-document": "Submit Documents",
   "accept-document": "Accept Documents",

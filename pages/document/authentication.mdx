@@ -7,18 +7,15 @@ import React from 'react'
 import {Callout, Bleed} from 'nextra-theme-docs'
 
 
-<Callout type="info" emoji="👆🏻">
-  You need to using the credentials from [Merchant Portal](https://caminv-dev-merc.mef.gov.kh) that include **client_id** and **client_secrete** for authentication.
-</Callout>
 
-## Method
-`POST`
+```http
+POST {BaseURL}/api/v1/token
+Content-Type: application/json
 
-## Authentication
-Basic authentication using `client_id` and `secret_key`.
-
-## Request Body
-No request body required.
+{
+  "refresh_token": "{refreshToken}"
+}
+```
 
 ## Success Response
 http status code: 200

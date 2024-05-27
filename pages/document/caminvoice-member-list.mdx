@@ -1,0 +1,33 @@
+# API Endpoint Documentation: `/api/v1/taxpayer/validate`
+
+## Description
+This endpoint is used to validate taxpayer information.
+
+```http
+GET {BaseURL}/api/v1/businesses?keyword={keyword}&limit={limit}
+Content-Type: application/json
+Authorization: "Bearer ${access_token}"
+```
+
+## Method
+`GET`
+
+## Authentication
+Bearer token authentication is required with the access token provided.
+
+
+## Request Query
+| Field            | Type    | Description                                      |
+|------------------|---------|--------------------------------------------------|
+| keyword        | String   | keyword to search entity                          |
+| limit           | number   | Limit number of businesses
+
+## Response
+
+### HTTP Status 200 (OK)
+Response Array of Business where Business field describe below
+| Field   | Description                                    |
+|---------|------------------------------------------------|
+| moc_id  | A Ministry of Commerce's single ID |
+| company_name_en  | Name in English |
+| moc_id  | Name in Khmer |
