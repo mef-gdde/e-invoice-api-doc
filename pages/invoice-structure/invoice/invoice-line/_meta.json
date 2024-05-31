@@ -1,6 +1,6 @@
 {   
     "id": "ID",
-    "invoiced-quantity": "InvoiceQuantity",
+    "invoice-quantity": "InvoiceQuantity",
     "line-extension-amount": "LineExtensionAmount",
     "allowance-charge": "AllowanceCharge",
     "tax-total": "TaxTotal",

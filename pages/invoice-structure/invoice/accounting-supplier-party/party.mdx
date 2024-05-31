@@ -1,29 +1,30 @@
 # cbc:Party
+
 The accounting supplier party.
 
 ## About
 
-* Occurrence: [1..1]
-* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+- Occurrence: [1..1]
+- Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
 
 ## Child elements
 
-| Data Field                                    | Occurrence | Definition |
-|-----------------------------------------------|:----------:|------------|
-| [cbc:EndpointID](./party/endpoint-id.mdx)                     |   [0..1]   | An identifier for the end point of the routing service (e.g., MOC Single IDBCursor, VAT). |
-| [cac:PartyName](./party/party-name.mdx)                       |   [0..*]   | A name for this party. |
-| [cac:PostalAddress](./party/postal-address.mdx)               |   [0..1]   | The party's postal address. |
-| [cac:PartyTaxScheme](./party/party-tax-scheme.mdx)             |   [0..*]   | A tax scheme applying to this party. |
-| [cac:PartyLegalEntity](./party/party-legal-entity.mdx)         |   [0..*]   | A description of this party as a legal entity. |
-| [cac:Contact](./party/contact.mdx)                           |   [0..1]   | The primary contact for this party. |
-
+| Data Field                                             | Occurrence | Definition                                                                                |
+| ------------------------------------------------------ | :--------: | ----------------------------------------------------------------------------------------- |
+| [cbc:EndpointID](./party/endpoint-id.mdx)              |   [0..1]   | An identifier for the end point of the routing service (e.g., MOC Single IDBCursor, VAT). |
+| [cac:PartyName](./party/party-name.mdx)                |   [០..1]   | A name for this party. In our case, the business's khmer name.                            |
+| [cac:PostalAddress](./party/postal-address.mdx)        |   [1..1]   | The party's postal address.                                                               |
+| [cac:PartyTaxScheme](./party/party-tax-scheme.mdx)     |   [1..1]   | A tax scheme applying to this party.                                                      |
+| [cac:PartyLegalEntity](./party/party-legal-entity.mdx) |   [1..1]   | A description of this party as a legal entity.                                            |
+| [cac:Contact](./party/contact.mdx)                     |   [1..1]   | The primary contact for this party.                                                       |
 
 ## Example
-```xml 
+
+```xml
 <cac:Party>
     <cbc:EndpointID>khuid00001234</cbc:EndpointID>
     <cac:PartyName>
-        <cbc:Name>Company Kor</cbc:Name>
+        <cbc:Name>ក្រុមហ៊ុន ក</cbc:Name>
     </cac:PartyName>
     <cac:PostalAddress>
         <cbc:ID schemeID="GLN" schemeAgencyID="9">1231412341324</cbc:ID>
@@ -37,17 +38,13 @@ The accounting supplier party.
         </cac:Country>
     </cac:PostalAddress>
     <cac:PartyTaxScheme>
-        <cbc:CompanyID schemeID="DKVAT" schemeAgencyID="ZZZ">DK12345</cbc:CompanyID>
+        <cbc:CompanyID>DK12345</cbc:CompanyID>
         <cac:TaxScheme>
-        <cbc:ID schemeID="UN/ECE 5153" schemeAgencyID="6">VAT</cbc:ID>
+            <cbc:ID>VAT</cbc:ID>
         </cac:TaxScheme>
     </cac:PartyTaxScheme>
     <cac:PartyLegalEntity>
-        <cbc:RegistrationName languageID="km">ក្រុមហ៊ុន ក</cbc:RegistrationName>
-        <cbc:CompanyID>K001-123456789</cbc:CompanyID>
-    </cac:PartyLegalEntity>
-    <cac:PartyLegalEntity>
-        <cbc:RegistrationName languageID="en">Company Kor </cbc:RegistrationName>
+        <cbc:RegistrationName languageID="en">Company Kor</cbc:RegistrationName>
         <cbc:CompanyID>K001-123456789</cbc:CompanyID>
     </cac:PartyLegalEntity>
     <cac:Contact>
