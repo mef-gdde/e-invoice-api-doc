@@ -1,7 +1,8 @@
 {
   "index": "Introduction",
-  "document": "API Document",
+  "getting-started": "Getting Started",
+  "api-reference": "API Reference",
   "webhooks": "Webhooks",
-  "ubl": "UBL Fields",
+  "invoice-structure": "Invoice Structure",
   "data-type": "Data Types"
 }

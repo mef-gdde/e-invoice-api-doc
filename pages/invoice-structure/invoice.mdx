@@ -1,7 +1,7 @@
 # UBL Invoice
 The table below presents the essential fields required for a UBL (Universal Business Language) invoice. These fields conform to the structure defined in UBL 2.1 Invoice. It provides details such as occurrence, examples, and definitions of each field. Only relevant and mandatory fields for the General Department of Taxation (GDT), as well as commonly used fields, are included. 
 
-Ensure that when creating and submitting your document, the fields are listed in the exact sequential order as below.
+Ensure that when creating and submitting your document, the fields are listed in the exact **sequential order** as below.
 
 Reference:
 * [UBL 2.1 Invoice Schema](https://docs.oasis-open.org/ubl/os-UBL-2.1/xsd/maindoc/UBL-Invoice-2.1.xsd)
@@ -21,17 +21,17 @@ Reference:
 |[cbc:ID](./invoice/id.mdx) |	[1..1] |An identifier for this document, assigned by the sender.|
 |[cbc:IssueDate](./invoice/issue-date.mdx) |	[1..1] | The date, assigned by the sender, on which this document was issued.
 |[cbc:DueDate](./invoice/due-date.mdx) |	[0..1] | The date on which invoice is due.
-|[cbc:InvoiceTypeCode](./invoice/invoice-type-code.mdx) | [0..1] |   A code signifying the type of the Invoice.
+|[cbc:InvoiceTypeCode](./invoice/invoice-type-code.mdx) | [1..1] |   A code signifying the type of the invoice.
 |[cbc:DocumentCurrencyCode](./invoice/document-currency-code.mdx) |	[1..1]	|The currency in which the invoice is using.
 |[cac:AccountingSupplierParty](./invoice/accounting-supplier-party.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
 |[cac:AccountingCustomerParty](./invoice/accounting-customer-party.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
-|[cac:AllowanceCharge](./invoice/allowance-charge.mdx) |	[1..n] |	Total tax amount for the invoice.
+|[cac:AllowanceCharge](./invoice/allowance-charge.mdx) |	[0..n] |	A discount or charge that applies to the invoice on document level.
 |[cac:TaxExchangeRate](./invoice/tax-exchange-rate.mdx) |	[0..1] |	Exchange rate applied for tax calculation in invoices involving conversion, mandatory if document currency is not Khmer Riel(KHR).
-|[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..1] |	Total tax amount for the invoice.
-|[cac:LegalMonetaryTotal](./invoice/legal-monetary-total.mdx) | [1..1] |	Total amounts for the invoice.
+|[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..1] |		Total tax amount for each specific tax.
+|[cac:LegalMonetaryTotal](./invoice/legal-monetary-total.mdx) | [1..1] |	Total monetary amounts for the invoice.
 |[cac:InvoiceLine](./invoice/invoice-line.mdx) |	[1..n] |	Each individual line item of the invoice.
 
-## Sample of UBL Invoice 
+## Sample UBL Invoice 
 ```xml
 <Invoice xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2">
   <cbc:UBLVersionID>2.1</cbc:UBLVersionID>
@@ -39,7 +39,6 @@ Reference:
   <cbc:IssueDate>2024-03-05</cbc:IssueDate>
   <cbc:InvoiceTypeCode listID="UN/ECE 1001 Subset">388</cbc:InvoiceTypeCode>
   <cbc:DocumentCurrencyCode>USD</cbc:DocumentCurrencyCode>
-  <cbc:BuyerReference>Phaney</cbc:BuyerReference>
   <cac:AccountingSupplierParty>
     <cac:Party>
       <cac:PartyName>
@@ -110,9 +109,6 @@ Reference:
       </cac:Contact>
     </cac:Party>
   </cac:AccountingCustomerParty>
-  <cac:PrepaidPayment>
-    <cbc:PaidAmount currencyID="USD">0</cbc:PaidAmount>
-  </cac:PrepaidPayment>
   <cac:TaxExchangeRate>
     <cbc:SourceCurrencyCode>USD</cbc:SourceCurrencyCode>
     <cbc:TargetCurrencyCode>KHR</cbc:TargetCurrencyCode>
@@ -136,6 +132,7 @@ Reference:
     <cbc:LineExtensionAmount currencyID="USD">10</cbc:LineExtensionAmount>
     <cbc:TaxExclusiveAmount currencyID="USD">10</cbc:TaxExclusiveAmount>
     <cbc:TaxInclusiveAmount currencyID="USD">11</cbc:TaxInclusiveAmount>
+    <cbc:PrepaidAmount currencyID="USD">0</cbc:PrepaidAmount>
     <cbc:PayableAmount currencyID="USD">11</cbc:PayableAmount>
   </cac:LegalMonetaryTotal>
   <cac:InvoiceLine>

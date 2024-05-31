@@ -10,11 +10,11 @@ The following table outlines the fields included in a UBL (Universal Business La
 |[cbc:DocumentCurrencyCode](./invoice/document-currency-code.mdx) |	[1..1]	|The currency in which the invoice is denominated.
 |[cac:AccountingSupplierParty](./invoice/accounting-supplier-party.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
 |[cac:AccountingCustomerParty](./invoice/accounting-customer-party.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
-|[cac:AllowanceCharge](./invoice/allowance-charge.mdx) |	[1..n] |	Total tax amount for the invoice.
 |[cac:TaxExchangeRate](./invoice/tax-exchange-rate.mdx) |	[0..1] |	Exchange rate applied for tax calculation in invoices involving conversion, mandatory if document currency is not Khmer Riel(KHR).
-|[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..1] |	Total tax amount for the invoice.
+|[cac:AllowanceCharge](./invoice/allowance-charge.mdx) |	[0..n] |	A discount or charge that applies to the invoice on document level.
+|[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..1] |		Total tax amount for each specific tax.
 |[cac:LegalMonetaryTotal](./invoice/legal-monetary-total.mdx) | [1..1] |	Total amounts for the invoice.
-|[cac:InvoiceLine](./invoice/invoice-line.mdx) |	[1..n] |	Each individual line item of the invoice.
+|[cac:DebitNoteLine](./invoice/invoice-line.mdx) |	[1..n] |	Each individual line item of the invoice.
 
 ## Sample of UBL Invoice 
 ```xml

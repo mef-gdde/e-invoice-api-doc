@@ -1,17 +1,32 @@
 ![](https://caminv-dev-bof.mef.gov.kh/image/logo.png)
 
-# Caminv API Document
+# CamInvoice Introduction
 
 ## About
 
-CamInv is an electronic invoicing, a digital solution that replaces traditional paper-based billing systems. It enables business to create, send and receive invoice electronically, optimizing financial workflows.
+CamInvoice is an electronic invoicing network designed to replace traditional paper-based billing systems and promote interoperability between businesses. Our platform enables businesses to create, send, and receive invoices electronically, optimizing financial workflows, reducing costs and time, and minimizing reliance on physical documents.
 
-Our system is developed with robust validation checks and compliance feature while adhering to relevant laws and regulations. Invoices are sent through secure and standardized channels.
+Our system is built with robust validation checks and compliance features, adhering to international best practices and relevant laws and regulations. Invoices are transmitted through secure and standardized channels.
 
-## How it work
-As a supplier can generate an E-invoice with the UBL(Universal Buesiness Language) XML format on their own system or on the provided merchant portal. The generated E-invoice can send via Caminv network.
+This technical documentation provides all the necessary information needed to integrate with our network, assuming you have already contacted us and received your credentials. The documentation is organized into the following sections:
+
+- [Getting Started](./getting-started/getting-start): A guide to help you begin your integration with CamInvoice.
+- [API Reference](./document/authentication): Detailed information about our API endpoints.
+- [Invoice Structure](./ubl): Specifications on the required formats for invoices and debit/credit notes.
+- [Webhooks](./webhooks): Information on how to configure and use webhooks for receiving notifications.
+- [Document Type](./document-type): Details on the various document types supported by CamInvoice.
+
+## How it works
 
 ![](./workflow.png)
 
-Caminv will validate the invoice format and all the require field in that UBL, If the Validation passed then Caminv validate the EKYB both customer and supplier. After eventhing is fine Caminv will attest and store the invoice with blockchain in [CamDL](https://camdl.gov.kh/).
-After hashing and store Caminv will trigger send to both **sender** and **receiver** system via [Webhook](./webhooks/webhook-events.mdx)
+As illustrated above, when a CamInvoice user generates an XML e-invoice using their system or our Free Merchant Portal, they must send the invoice to CamInvoice via our API.
+
+CamInvoice validates the invoice through multiple checks, including XML structure validation, UBL field validation, General Department of Taxation (GDT) rules validation, and e-KYB validation. Once the invoice passes all validations, CamInvoice attests and stores it on the blockchain via CamDL.
+
+After hashing and storing the invoice, CamInvoice triggers a notification to both the sender's and receiver's systems via Webhook.
+
+
+
+
+
