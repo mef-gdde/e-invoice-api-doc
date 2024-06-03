@@ -7,16 +7,19 @@ import React from 'react'
 import {Callout, Bleed} from 'nextra-theme-docs'
 
 
-
 ```http
 POST {BaseURL}/api/v1/token
 Content-Type: application/json
-
+Authorization: Basic {encodedClientId:clientSecret}
 {
   "refresh_token": "{refreshToken}"
 }
 ```
+### Headers
 
+- **Content-Type**: `application/json`
+- **Authorization**: Basic Auth `clientId:clientSecret`
+  - The `clientId` and `clientSecret` should be base64 encoded.
 ## Success Response
 http status code: 200
 

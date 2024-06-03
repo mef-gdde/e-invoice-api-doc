@@ -1,0 +1,65 @@
+
+# Setting Up Webhook
+
+## Endpoint Description
+This endpoint allows you to configure a webhook to receive notifications for certain events.
+
+```bash
+POST {baseUrl}/webhook/
+Content-Type: application/json
+Authorization: Basic {encodedClientId:clientSecret}
+{
+    "moc_id": "exampleID",
+    "webhook_url": "https://example.com/webhook"
+}
+```
+
+## Request Details
+
+### Headers
+
+- **Content-Type**: `application/json`
+- **Authorization**: Basic Auth `clientId:clientSecret`
+  - The `clientId` and `clientSecret` should be base64 encoded.
+
+### Payload
+
+| Key          | Required | Type   | Description                                 |
+|--------------|----------|--------|---------------------------------------------|
+| `moc_id`     | No      | String | The ID of the module configuration. If no id modify will apply to all          |
+| `webhook_url`| Yes      | String | The URL to which notifications will be sent.|
+
+## Success Response
+
+HTTP status code: 200
+
+| Key       | Definition                              |
+|-----------|-----------------------------------------|
+| `message` | "successful" – Indicates successful setup. |
+
+## Error Response 
+
+HTTP status code: 401
+
+| Key               | Definition                                                                          |
+|-------------------|-------------------------------------------------------------------------------------|
+| `error`           | The error code indicating the nature of the failure.                                 |
+| `error_description` | "Invalid client credentials" – Typically shown when authentication details are wrong.|
+
+## Example Usage
+
+Here’s how you can use `curl` to set up the webhook:
+
+```bash
+curl -X POST "{baseUrl}/webhook/" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Basic $(echo -n '{clientId}:{clientSecret}' | base64)" \
+  -d '{
+        "moc_id": "exampleID",
+        "webhook_url": "https://example.com/webhook"
+      }'
+```
+
+## Notes
+- Ensure that the `webhook_url` is accessible from the server sending the webhook.
+- The provided `moc_id` should correspond to a valid module configuration.

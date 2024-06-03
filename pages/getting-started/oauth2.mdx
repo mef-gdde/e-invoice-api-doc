@@ -42,11 +42,16 @@ Exchange the authToken for access and refresh tokens:
 ```http
 POST {BaseURL}/api/v1/service-providers/connect
 Content-Type: application/json
-
+Authorization: Basic {encodedClientId:clientSecret}
 {
   "auth_token": "{authToken}"
 }
 ```
+### Headers
+
+- **Content-Type**: `application/json`
+- **Authorization**: Basic Auth `clientId:clientSecret`
+  - The `clientId` and `clientSecret` should be base64 encoded.
 
 ### Request Parameters
 
