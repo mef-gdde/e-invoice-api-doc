@@ -40,7 +40,7 @@ redirect_url?authToken={authToken}
 Exchange the authToken for access and refresh tokens:
 
 ```http
-POST {BaseURL}/api/v1/service-providers/connect
+POST {BaseURL}/api/v1/auth/connect
 Content-Type: application/json
 Authorization: Basic {encodedClientId:clientSecret}
 {

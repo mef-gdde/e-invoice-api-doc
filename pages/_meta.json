@@ -2,7 +2,7 @@
   "index": "Introduction",
   "getting-started": "Getting Started",
   "api-reference": "API Reference",
-  "webhooks": "Webhooks",
+  "receive-update-event": "Receive Update Event",
   "invoice-structure": "Invoice Structure",
   "data-type": "Data Types"
 }

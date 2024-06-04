@@ -3,8 +3,11 @@
 ## Description
 This endpoint is used to download the PDF file of a specific document identified by its ID.
 
-## Method
-`GET`
+```http
+GET {BaseURL}/api/v1/document/:document_id/
+Content-Type: application/json
+Authorization: "Bearer ${access_token}"
+```
 
 ## Authentication
 Bearer token authentication is required with the access token provided.

@@ -1,11 +1,13 @@
-# API Endpoint Documentation: `/api/v1/document`
+# Get List Docuents
 
 ## Description
 This endpoint is used to retrieve documents.
 
-## Method
-`GET`
-
+```http
+GET {BaseURL}/api/v1/document
+Content-Type: application/json
+Authorization: "Bearer ${access_token}"
+```
 
 ## Authentication
 Bearer token authentication is required with the access token provided.
@@ -44,18 +46,11 @@ Bearer token authentication is required with the access token provided.
             "status": "SENT",
             "issue_date": "2024-03-05T00:00:00.000Z",
             "due_date": null,
-            "pdf_file": "documents/df5dcf78-e78b-4396-87bb-2d2a44c1302e.pdf",
             "created_at": "2024-03-07T07:16:04.991Z",
             "updated_at": "2024-03-07T07:16:07.859Z",
-            "xml_size": 4936,
-            "pdf_size": 123668,
             "created_by": "API_INTEGRATION",
             "currency": "USD",
-            "tax_inclusive_amount": 11,
-            "document_type": "INVOICE",
-            "reference_document_id": null,
-            "reference_document_number": null,
-            "document": ""
+            "document_type": "INVOICE"
         }
     ],
     "pagination": {

@@ -1,10 +1,20 @@
-# API Endpoint Documentation: `/api/v1/docoument/cancel`
+# Cancel Docuements
 
 ## Description
 This endpoint is used to accept document from customer.
 
-## Method
-`POST`
+```http
+POST {BaseURL}/api/v1/docoument/cancel
+Content-Type: application/json
+Authorization: "Bearer ${access_token}"
+{
+    "document_ids": [
+        "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+        "33444323-e78b-4396-87bb-234232344423",
+        "24442432-e78b-4396-87bb-334553344533"
+    ]
+}
+```
 
 ## Authentication
 Bearer token authentication is required with the access token provided.

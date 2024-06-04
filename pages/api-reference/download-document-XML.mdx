@@ -1,10 +1,13 @@
-# API Endpoint Documentation: `/api/v1/document/:document_id/xml`
+# Download XML
 
 ## Description
 This endpoint is used to download the XML file of a specific document identified by its ID in UBL (Universal Business Language) format.
 
-## Method
-`GET`
+```http
+GET {BaseURL}/api/v1/document/:document_id/xml
+Content-Type: application/json
+Authorization: "Bearer ${access_token}"
+```
 
 ## Authentication
 Bearer token authentication is required with the access token provided.

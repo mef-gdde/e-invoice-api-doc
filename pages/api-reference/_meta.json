@@ -1,8 +1,10 @@
 {
   "authentication": "Get New Access Token",
   "caminvoice-member-list": "CamInvoice Member List",
+  "caminvoice-member-detail": "CamInvoice Member Detail",
   "validate-taxpayer": "Validate Taxpayer",
   "submit-document": "Submit Documents",
+  "get-document-detail": "Get Document Detail",
   "accept-document": "Accept Documents",
   "reject-document": "Reject Documents"
 }
