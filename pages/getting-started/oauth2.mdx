@@ -99,6 +99,9 @@ Authorization: Basic {encodedClientId:clientSecret}
 | `phone_number`       | The primary contact number for the company                   |
 | `email`              | The email address for business correspondence 
 
+## Step 4: Make API Calls
+To make API calls, replace ACCESS-TOKEN with your access token in the authorization header: -H Authorization: Bearer ACCESS-TOKEN. When your access token expires, request a new one by calling **/api/v1/token** with your refresh token.
+
 <Callout>This guide assumes that you have already set up your client_id and know your redirect URL.</Callout>
 ```
 
