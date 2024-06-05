@@ -4,10 +4,7 @@
     "due-date": "DueDate",
     "invoice-type-code": "InvoiceTypeCode",
     "document-currency-code": "DocumentCurrencyCode",
-<<<<<<< HEAD
-=======
     "billing-reference": "BillingReference",
->>>>>>> 6e0230b (Working on credit note)
     "accounting-supplier-party": "AccountingSupplierParty",
     "accounting-customer-party": "AccountingCustomerParty",
     "tax-exchange-rate": "TaxExchangeRate",
