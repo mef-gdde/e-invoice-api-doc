@@ -1,0 +1,20 @@
+
+# cbc:TaxableAmount
+
+The net amount to which the tax percent (rate) is applied to calculate the tax amount.
+
+## About
+
+- Occurrence: [0..1]
+- Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
+
+## Attributes
+
+| Name        | Occurrence | Type        | Description                                            |
+|-------------|:----------:|-------------|--------------------------------------------------------|
+| currencyID  |   [0..1]   | xsd:string  | The identifier of the currency used for the taxable amount. |
+
+## Example
+
+```xml
+<cbc:TaxableAmount currencyID="USD">100.00</cbc:TaxableAmount>

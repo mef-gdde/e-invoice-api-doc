@@ -1,0 +1,5 @@
+{
+    "taxable-amount": "TaxableAmount",
+    "tax-amount": "TaxAmount",
+    "tax-category": "TaxCategory"
+}

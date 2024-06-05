@@ -1,0 +1,7 @@
+{
+    "name": "Name",
+    "description": "Descirption",
+    "sellers-item-identification": "SellersItemIdentification",
+    "standard-item-identification": "StandardItemIdentification",
+    "origin-country": "OriginCountry"
+}

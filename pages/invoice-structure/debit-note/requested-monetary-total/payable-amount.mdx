@@ -1,0 +1,20 @@
+
+# cbc:PayableAmount
+
+The amount of the monetary total to be paid.
+
+## About
+
+- Occurrence: [1..1]
+- Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
+
+## Attributes
+
+| Name        | Occurrence | Type        | Description                                            |
+|-------------|:----------:|-------------|--------------------------------------------------------|
+| currencyID  |   [1..1]   | xsd:string  | The identifier of the currency used in the transaction. |
+
+## Example
+
+```xml
+<cbc:PayableAmount currencyID="USD">150.00</cbc:PayableAmount>

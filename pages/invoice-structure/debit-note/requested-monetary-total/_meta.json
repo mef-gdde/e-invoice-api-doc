@@ -1,0 +1,9 @@
+{
+    "line-extension-amount": "LineExtensionAmount",
+    "tax-exclusive-amount": "TaxExclusiveAmount",
+    "tax-inclusive-amount": "TaxInclusiveAmount",
+    "allowance-total-amount": "AllowanceTotalAmount",
+    "charge-total-amount": "ChargeTotalAmount",
+    "prepaid-amount": "PrepaidAmount",
+    "payable-amount": "PayableAmount"
+}

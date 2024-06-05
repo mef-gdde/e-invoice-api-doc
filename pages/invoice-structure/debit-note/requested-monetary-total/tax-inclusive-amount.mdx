@@ -1,0 +1,19 @@
+# cbc:TaxInclusiveAmount
+
+The monetary amount including taxes; the sum of payable amount and prepaid amount.
+
+## About
+
+- Occurrence: [0..1]
+- Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
+
+## Attributes
+
+| Name        | Occurrence | Type        | Description                                            |
+|-------------|:----------:|-------------|--------------------------------------------------------|
+| currencyID  |   [1..1]   | xsd:string  | The identifier of the currency used in the transaction. |
+
+## Example
+
+```xml
+<cbc:TaxInclusiveAmount currencyID="USD">90.00</cbc:TaxInclusiveAmount>

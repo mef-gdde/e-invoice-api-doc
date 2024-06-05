@@ -1,0 +1,19 @@
+# cbc:PriceAmount
+
+The price amount for a particular item or service.
+
+## About
+
+- Occurrence: [1..1]
+- Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
+
+## Attributes
+
+| Name                   | Occurrence | Type                | Description                                               |
+|------------------------|:----------:|---------------------|-----------------------------------------------------------|
+| currencyID             |   [1..1]   | xsd:normalizedString | The currency of the amount.                               |
+
+## Example
+
+```xml
+<cbc:PriceAmount currencyID="USD">100.00</cbc:PriceAmount>

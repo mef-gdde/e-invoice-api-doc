@@ -4,11 +4,12 @@
     "due-date": "DueDate",
     "invoice-type-code": "InvoiceTypeCode",
     "document-currency-code": "DocumentCurrencyCode",
+    "billing-reference": "BillingReference",
     "accounting-supplier-party": "AccountingSupplierParty",
     "accounting-customer-party": "AccountingCustomerParty",
     "tax-exchange-rate": "TaxExchangeRate",
     "allowance-charge": "AllowanceCharge",
     "tax-total": "TaxTotal",
-    "legal-monetary-total": "LegalMonetaryTotal",
-    "invoice-line": "InvoiceLine"
+    "requested-monetary-total": "RequestedMonetaryTotal",
+    "debit-note-line": "DebitNoteLine"
 }

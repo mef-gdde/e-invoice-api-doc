@@ -1,0 +1,57 @@
+# cac:CreditNoteLine
+
+A specific line of an credit-note that describes a product or service.
+
+## About
+
+- Occurrence: [1..n]
+- Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child elements
+
+| Data Field                                                          | Occurrence | Definition                                                                            |
+| ------------------------------------------------------------------- | :--------: | ------------------------------------------------------------------------------------- |
+| [cbc:ID](./credit-note-line/id.mdx)                                     |   [1..1]   | An identifier for this credit-note line.                                                  |
+| [cbc:CreditedQuantity](./credit-note-line/credited-quantity.mdx)        |   [1..1]   | The quantity (of items) on this  line.                                         |
+| [cbc:LineExtensionAmount](./credit-note-line/line-extension-amount.mdx) |   [1..1]   | The total amount for this credit-note line, including allowance charges but net of taxes. |
+| [cac:AllowanceCharge](./credit-note-line/allowance-charge.mdx)          |   [0..*]   | An allowance or charge associated with this credit-note line.                             |
+| [cac:TaxTotal](./credit-note-line/tax-total.mdx)                        |   [0..1]   | A total amount of taxes of a particular kind applicable to this credit-note line.         |
+| [cac:Item](./credit-note-line/item.mdx)                                 |   [1..1]   | The item associated with this credit-note line.                                           |
+| [cac:Price](./credit-note-line/price.mdx)                               |   [0..1]   | The price of the item associated with this credit-note line.                              |
+
+## Example
+
+```xml
+<cac:CreditNoteLine>
+      <cbc:ID>1</cbc:ID>
+      <cbc:CreditedQuantity unitCode="none">1</cbc:CreditedQuantity>
+      <cbc:LineExtensionAmount currencyID="USD">1200</cbc:LineExtensionAmount>
+      <cac:TaxTotal>
+         <cbc:TaxAmount currencyID="USD">120</cbc:TaxAmount>
+         <cac:TaxSubtotal>
+            <cbc:TaxAmount currencyID="USD">120</cbc:TaxAmount>
+            <cac:TaxCategory>
+               <cbc:ID>S</cbc:ID>
+               <cbc:Percent>10</cbc:Percent>
+               <cac:TaxScheme>
+                  <cbc:ID>VAT</cbc:ID>
+               </cac:TaxScheme>
+            </cac:TaxCategory>
+         </cac:TaxSubtotal>
+      </cac:TaxTotal>
+      <cac:Item>
+         <cbc:Description>iPhone 13 Pro Max</cbc:Description>
+         <cbc:Name>iPhone 13 Pro Max</cbc:Name>
+         <cac:ClassifiedTaxCategory>
+            <cbc:ID>S</cbc:ID>
+            <cbc:Percent>10</cbc:Percent>
+            <cac:TaxScheme>
+               <cbc:ID>VAT</cbc:ID>
+            </cac:TaxScheme>
+         </cac:ClassifiedTaxCategory>
+      </cac:Item>
+      <cac:Price>
+         <cbc:PriceAmount currencyID="USD">1200</cbc:PriceAmount>
+      </cac:Price>
+   </cac:CreditNoteLine>
+```
