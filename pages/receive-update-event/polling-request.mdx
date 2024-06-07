@@ -5,7 +5,7 @@
 This endpoint Allow you to poll the new event updated without waiting triggered from webhook
 
 ```bash
-get {baseUrl}/api/v1/updated?last_synced_at=2024-06-01T01:00:00
+get {baseUrl}/api/v1/document/poll?last_synced_at=2024-06-01T01:00:00
 Content-Type: application/json
 Authorization: "Bearer {access_token}"
 ```
@@ -44,5 +44,5 @@ Here’s how you can use `curl` to set up the webhook:
 ```bash
 curl "{baseUrl}/api/v1/updated?last_synced_at=2024-06-01T01:00:00" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Basic $(echo -n '{clientId}:{clientSecret}' | base64)" \
+  -H "Authorization: Basic {access_token}" \
 ```

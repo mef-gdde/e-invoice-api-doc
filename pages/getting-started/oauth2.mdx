@@ -9,6 +9,18 @@ import { Callout } from 'nextra/components'
 ## Overview
 
 Integrate OAuth 2.0 to securely access services through third-party servers.
+## Configuration
+```http
+POST {BaseURL}/api/v1/configure/configure-redirect-url
+Content-Type: application/json
+Authorization: Basic {encodedClientId:clientSecret}
+{
+  "white_list_redirect_urls": [
+    "http://domain_webhook"
+]
+}
+
+```
 
 ## Step 1: Generate Connect Link
 
