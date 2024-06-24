@@ -1,0 +1,10 @@
+{
+    "floor": "Floor",
+    "room": "Room",
+    "street-name": "StreetName",
+    "additional-street-name": "AdditionalStreetName",
+    "building-name": "BuilingName",
+    "city-name": "CityName",
+    "postal-zone": "PostalZone",
+    "country": "Country"
+}

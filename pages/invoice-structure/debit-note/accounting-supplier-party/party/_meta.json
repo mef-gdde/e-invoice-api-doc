@@ -1,0 +1,8 @@
+{   
+   "endpoint-id": "EndpointID",
+   "party-name": "PartyName",
+   "postal-address": "PostalAddress",
+   "party-tax-scheme": "PartyTaxScheme",
+   "party-legal-entity": "PartyLegalEntity",
+   "contact": "Contact"
+}
