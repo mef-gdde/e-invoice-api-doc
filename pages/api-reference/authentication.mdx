@@ -1,4 +1,4 @@
-# Getting Access Toking
+# Getting Access Token
 
 ## Description
 This endpoint is used to obtain a token for authentication.
@@ -18,10 +18,17 @@ Authorization: Basic encoded({ClientId:clientSecret})
 ### Headers
 
 - **Content-Type**: `application/json`
-- **Authorization**: Basic Auth `clientId:clientSecret`
-  - The `clientId` and `clientSecret` should be base64 encoded.
-## Success Response
-http status code: 200
+- **Authorization**: `Basic base64encode({clientId:clientSecret})`
+  - The `clientId:clientSecret` should be base64 encoded.
+
+### Request Parameters
+
+| Parameter   | Description                  | Required |
+|-------------|------------------------------|----------|
+| `refresh_token`| Refresh token is given when first connected and can be used to renew access token here.  | Yes      |
+
+### Success Response
+**http status code: 200**
 
 | Key         | Definition                                                                                                                     |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------|
@@ -29,14 +36,14 @@ http status code: 200
 | token_type  | The type of the token, usually "Bearer".                                                                                     |
 | expire_in   | The duration in seconds for which the token is valid. After this period, the token expires and a new one must be obtained.  |
 
-## Error Response 
-http status code: 401
+### Error Response 
+**http status code: 401**
 
 | Key               | Definition                                                                                  |
 |-------------------|---------------------------------------------------------------------------------------------|
-| error             | The error code indicating an invalid client.                                                 |
-| error_description | Description of the error, typically "Invalid client credentials" when client is unauthorized.|
+| message           | Description of the error                                           |
 
-## Notes
+### Notes
 - The token received in the 200 response should be used as a Bearer token for subsequent requests requiring authentication.
 - Tokens expire after 900 seconds (15 minutes).
+

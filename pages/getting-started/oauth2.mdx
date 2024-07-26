@@ -13,7 +13,7 @@ Integrate OAuth 2.0 to securely access services through third-party servers.
 ```http
 POST {BaseURL}/api/v1/configure/configure-redirect-url
 Content-Type: application/json
-Authorization: Basic base64encode({ClientId:clientSecret})
+Authorization: Basic base64encode({clientId:clientSecret})
 {
   "white_list_redirect_urls": [
     "http://domain_webhook"
@@ -37,7 +37,7 @@ Construct the URL to initiate the OAuth flow:
 | `BaseURL`        | The base URL of the API                           | Yes      |
 | `client_id`      | The client's unique identifier                    | Yes      |
 | `redirect_url`   | URL to redirect after authentication              | Yes      |
-| `status`| A unique state to maintain state between redirects| No      |
+| `state`          | A unique state to maintain state between redirects| No      |
 
 ## Step 2: Redirect Handling
 
@@ -54,7 +54,7 @@ Exchange the authToken for access and refresh tokens:
 ```http
 POST {BaseURL}/api/v1/auth/authorize/connect
 Content-Type: application/json
-Authorization: Basic {encodedClientId:clientSecret}
+Authorization: Basic base64encode({clientId:clientSecret})
 {
   "auth_token": "{authToken}"
 }
@@ -62,8 +62,8 @@ Authorization: Basic {encodedClientId:clientSecret}
 ### Headers
 
 - **Content-Type**: `application/json`
-- **Authorization**: Basic Auth `clientId:clientSecret`
-  - The `clientId` and `clientSecret` should be base64 encoded.
+- **Authorization**: `Basic base64encode({clientId:clientSecret})`
+  - The `clientId:clientSecret` should be base64 encoded.
 
 ### Request Parameters
 
@@ -115,5 +115,4 @@ Authorization: Basic {encodedClientId:clientSecret}
 To make API calls, replace ACCESS-TOKEN with your access token in the authorization header: -H Authorization: Bearer ACCESS-TOKEN. When your access token expires, request a new one by calling **/api/v1/token** with your refresh token.
 
 <Callout>This guide assumes that you have already set up your client_id and know your redirect URL.</Callout>
-```
 

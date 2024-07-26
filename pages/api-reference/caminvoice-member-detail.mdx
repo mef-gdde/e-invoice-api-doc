@@ -1,29 +1,29 @@
-# CamInvoice Member List
+
+# CamInvoice Member Detail
 
 ## Description
-This endpoint is used to validate taxpayer information.
+This endpoint is used to retrieve detailed information about a specific business identified by its Ministry of Commerce (MoC) ID.
 
 ```http
 GET {BaseURL}/api/v1/businesses/{moc_id}
 Content-Type: application/json
-Authorization: "Bearer ${access_token}"
+Authorization: Bearer {access_token}
 ```
 
-## Method
-`GET`
-
-## Authentication
+### Authentication
 Bearer token authentication is required with the access token provided.
 
+### Path Parameters
 
-## Request Parameter
-| Field            | Type    | Description                                      |
-|------------------|---------|--------------------------------------------------|
-| moc_id        | String   | A Ministry of Commerce's single ID                           |
-| limit           | number   | Limit number of businesses
+| Parameter | Type   | Description                                                 | Required |
+|-----------|--------|-------------------------------------------------------------|----------|
+| `moc_id`  | String | The unique identification number assigned by the Ministry of Commerce | Yes      |
 
-## Response
-```javascript
+### Response
+
+**HTTP Status 200 (OK)**
+
+```json
 {
   "moc_id": "033423",
   "company_name_en": "Expresso Co ltd",
@@ -34,19 +34,31 @@ Bearer token authentication is required with the access token provided.
   "city": "Phnom Penh",
   "country": "KH",
   "phone_number": "+85544433422",
-  "email": "phenpani@gmail.com",
+  "email": "phenpani@gmail.com"
 }
 ```
-Response Array of Business where Business field describe below
+
+**Response Fields**
+
+
 | Field Name            | Description                                                           |
 |-----------------------|-----------------------------------------------------------------------|
-| moc_id                | The unique identification number assigned to the company by the Ministry of Commerce. |
-| company_name_en       | The official name of the company in English.                          |
-| company_name_kh       | The official name of the company in Khmer (Cambodian language).       |
-| tin                   | The Tax Identification Number (TIN) of the company.                   |
-| date_of_incorporation| The date when the company was officially incorporated.                |
-| business_type         | The type of business the company is engaged in.                      |
-| city                  | The city where the company is located.                               |
-| country               | The country code of the country where the company is located.         |
-| phone_number          | The phone number of the company.                                     |
-| email                 | The email address associated with the company.                        |
+| `moc_id`              | The unique identification number assigned to the company by the Ministry of Commerce. |
+| `company_name_en`     | The official name of the company in English.                          |
+| `company_name_kh`     | The official name of the company in Khmer.                            |
+| `tin`                 | The Tax Identification Number (TIN) of the company.                   |
+| `date_of_incorporation`| The date when the company was officially incorporated.                |
+| `business_type`       | The type of business the company is engaged in.                       |
+| `city`                | The city where the company is located.                                |
+| `country`             | The country code where the company is located.                        |
+| `phone_number`        | The phone number of the company.                                      |
+| `email`               | The email address associated with the company.                        |
+
+**HTTP Status 404 (Not Found)**
+
+This response occurs when the specified MoC ID does not exist.
+
+### Notes
+- Ensure the client handles the retrieval and display of business details appropriately.
+- The endpoint returns detailed information about a business identified by its MoC ID.
+

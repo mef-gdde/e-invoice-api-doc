@@ -1,4 +1,4 @@
-# Validate Tax Payer
+# Validate Taxpayer
 
 ## Description
 This endpoint is used to validate taxpayer information.
@@ -6,35 +6,48 @@ This endpoint is used to validate taxpayer information.
 ```http
 POST {BaseURL}/api/v1/business/validate
 Content-Type: application/json
-Authorization: "Bearer ${access_token}"
+Authorization: Bearer {access_token}
 {
     "single_id": "2333",
     "tin": "K009-023344534",
-    "company_name_en": "Testing compnay",
-    "company_name_kh": "Testing compnay"
+    "company_name_en": "Testing company",
+    "company_name_kh": "Testing company"
 }
- 
 ```
 
 ## Method
+`POST`
 
 ## Authentication
 Bearer token authentication is required with the access token provided.
 
 ## Request Body
-| Field            | Type    | Description                                      |
-|------------------|---------|--------------------------------------------------|
-| single_id        | String  | The single ID of the taxpayer.                   |
-| tin              | String  | The taxpayer identification number (TIN).        |
-| company_name_en  | String  | The company name in English.                     |
-| company_name_kh  | String  | The company name in Khmer (Cambodian language).  |
 
-## Response
+| Field           | Type   | Description                                     | Required |
+|-----------------|--------|-------------------------------------------------|----------|
+| `single_id`     | String | The single ID of the taxpayer.                  | Yes      |
+| `tin`           | String | The taxpayer identification number (TIN).       | Yes      |
+| `company_name_en`| String | The company name in English.                    | Yes      |
+| `company_name_kh`| String | The company name in Khmer (Cambodian language). | Yes      |
+
+## Responses
 
 ### HTTP Status 200 (OK)
-| Field   | Description                                    |
-|---------|------------------------------------------------|
-| is_valid | A boolean indicating whether the taxpayer is valid or not. |
+
+```json
+{
+  "is_valid": true
+}
+```
+
+| Field     | Description                                              |
+|-----------|----------------------------------------------------------|
+| `is_valid`| A boolean indicating whether the taxpayer is valid or not.|
 
 ### HTTP Status 422 (Unprocessable Entity)
-This response occurs when the provided data are missing
+This response occurs when the provided data is missing or invalid.
+
+## Notes
+- Ensure the request body contains all required fields to validate the taxpayer information.
+- The endpoint checks the validity of the taxpayer based on the provided single ID, TIN, and company names.
+
