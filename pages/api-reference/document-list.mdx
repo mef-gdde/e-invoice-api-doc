@@ -1,4 +1,4 @@
-# Get List Docuents
+# Get List Documents
 
 ## Description
 This endpoint is used to retrieve documents.
@@ -6,29 +6,29 @@ This endpoint is used to retrieve documents.
 ```http
 GET {BaseURL}/api/v1/document
 Content-Type: application/json
-Authorization: "Bearer ${access_token}"
+Authorization: Bearer {access_token}
 ```
 
-## Authentication
-Bearer token authentication is required with the access token provided.
+### Method
+`GET`
 
-## Query Parameters
-| Parameter        | Type    | Description                                              | Default   |
-|------------------|---------|----------------------------------------------------------|-----------|
-| type             | String  | The type of documents to retrieve. Possible values: 'received' or 'send'. | 'send'    |
-| page             | Integer | The page number for pagination.                          | 1         |
-| size             | Integer | The number of documents per page.                        | 20        |
-| document_type    | String  | The [type of document](/data-type/document-type) to retrieve. Default is "INVOICE".  | "INVOICE" |
+### Headers
+- **Content-Type**: `application/json`
+- **Authorization**: `Bearer {access_token}`
 
-## Responses
+### Query Parameters
 
-### HTTP Status 200 (OK)
-| Field         | Description                                    |
-|---------------|------------------------------------------------|
-| data          | An array containing the retrieved documents.   |
-| pagination    | Information about pagination.                  |
+| Parameter       | Type    | Description                                                           | Default   |
+|-----------------|---------|-----------------------------------------------------------------------|-----------|
+| `type`          | String  | The type of documents to retrieve. Possible values: 'received' or 'send'. | 'send'    |
+| `page`          | Integer | The page number for pagination.                                       | 1         |
+| `size`          | Integer | The number of documents per page.                                     | 20        |
+| `document_type` | String  | The type of document to retrieve. Default is "INVOICE".               | "INVOICE" |
 
-#### Example Response Body
+### Response
+
+**HTTP Status 200 (OK)**
+
 ```json
 {
     "data": [
@@ -60,3 +60,55 @@ Bearer token authentication is required with the access token provided.
         "total_pages": 7
     }
 }
+```
+
+**Response Fields**
+
+| Field       | Description                                    |
+|-------------|------------------------------------------------|
+| `data`      | An array containing the retrieved documents.   |
+| `pagination`| Information about pagination.                  |
+
+### Example Response Body
+
+```json
+{
+    "data": [
+        {
+            "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+            "document_number": "24030192110",
+            "supplier_id": "1010015172",
+            "supplier_company_name_kh": "នាសារ៉ាថ្មី ឯ.ក",
+            "supplier_company_name_en": "NEASARANEW CO., LTD.",
+            "supplier_vattin": "23144122",
+            "customer_id": "1010015172",
+            "customer_company_name_en": "NEASARANEW CO., LTD.",
+            "customer_company_name_kh": "នាសារ៉ាថ្មី ឯ.ក",
+            "customer_vattin": "23144122",
+            "status": "SENT",
+            "issue_date": "2024-03-05T00:00:00.000Z",
+            "due_date": null,
+            "created_at": "2024-03-07T07:16:04.991Z",
+            "updated_at": "2024-03-07T07:16:07.859Z",
+            "created_by": "API_INTEGRATION",
+            "currency": "USD",
+            "document_type": "INVOICE"
+        }
+    ],
+    "pagination": {
+        "page": 1,
+        "size": 20,
+        "total_counts": 126,
+        "total_pages": 7
+    }
+}
+```
+
+**HTTP Status 422 (Unprocessable Entity)**
+
+This response occurs when the provided data is missing or invalid.
+
+### Notes
+- Ensure the request contains all required query parameters to retrieve the desired documents.
+- The endpoint returns the list of documents based on the specified query parameters, along with pagination information.
+

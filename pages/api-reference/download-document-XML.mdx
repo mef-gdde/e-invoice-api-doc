@@ -4,27 +4,34 @@
 This endpoint is used to download the XML file of a specific document identified by its ID in UBL (Universal Business Language) format.
 
 ```http
-GET {BaseURL}/api/v1/document/:document_id/xml
+GET {BaseURL}/api/v1/document/{document_id}/xml
 Content-Type: application/json
-Authorization: "Bearer ${access_token}"
+Authorization: Bearer {access_token}
 ```
 
-## Authentication
-Bearer token authentication is required with the access token provided.
+### Method
+`GET`
 
-## Path Parameters
-| Parameter   | Type   | Description                            |
-|-------------|--------|----------------------------------------|
-| document_id | String | The unique identifier of the document. |
+### Headers
+- **Content-Type**: `application/json`
+- **Authorization**: `Bearer {access_token}`
 
-## Responses
+### Path Parameters
 
-### HTTP Status 200 (OK)
+| Parameter    | Type   | Description                                      | Required |
+|--------------|--------|--------------------------------------------------|----------|
+| `document_id`| String | The unique identifier of the document.           | Yes      |
+
+### Response
+
+**HTTP Status 200 (OK)**
+
 This response returns the XML file of the specified document in UBL format. The file can be downloaded by the client.
 
-### HTTP Status 404 (Not Found)
+**HTTP Status 404 (Not Found)**
+
 This response occurs when the specified document ID does not exist.
 
-## Notes
+### Notes
 - The endpoint allows downloading the XML file of a document identified by its ID in UBL format.
 - Ensure that the client handles the file download appropriately.

@@ -1,10 +1,10 @@
-# Accept Docuements
+# Accept Documents
 
 ## Description
-This endpoint is used to accept document from customer.
+This endpoint is used to accept documents from customers.
 
 ```http
-POST {BaseURL}/api/v1/docoument/accept
+POST {BaseURL}/api/v1/document/accept
 Content-Type: application/json
 Authorization: Bearer {access_token}
 {
@@ -15,20 +15,22 @@ Authorization: Bearer {access_token}
     ]
 }
 ```
-
-## Method
+### Method 
 `POST`
 
-## Authentication
-Bearer token authentication is required with the access token provided.
+### Headers
+- **Content-Type**: `application/json`
+- **Authorization**: `Bearer {access_token}`
 
-## Request Body
-| Field            | Type    | Description                                         |
-|------------------|---------|-----------------------------------------------------|
-| document_ids        | string[]  | list of accepted document id|
+### Request Parameters
+
+| Field            | Type     | Description                          | Required |
+|------------------|----------|--------------------------------------|----------|
+| `document_ids`   | string[] | List of document IDs to be accepted. | Yes      |
 
 ### Example Request Body
-```json 
+
+```json
 {
     "document_ids": [
         "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
@@ -37,20 +39,16 @@ Bearer token authentication is required with the access token provided.
     ]
 }
 ```
-## Response
 
-### HTTP Status 200 (OK)
-| Field   | Description                                    |
-|---------|------------------------------------------------|
-| accepted_documents | list of document id that accepted |
-| failed_documents | list failure document with the failure message |
+### Response
 
-### Example
-```json 
+**HTTP Status 200 (OK)**
+
+```json
 {
     "accepted_documents": [
         "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
-        "33444323-e78b-4396-87bb-234232344423",
+        "33444323-e78b-4396-87bb-234232344423"
     ],
     "failed_documents": [
         {
@@ -59,7 +57,19 @@ Bearer token authentication is required with the access token provided.
         }
     ]
 }
-
 ```
-### HTTP Status 422 (Unprocessable Entity)
-This response occurs when the provided data are missing
+
+**Response Fields**
+
+| Field               | Description                                                |
+|---------------------|------------------------------------------------------------|
+| `accepted_documents`| List of document IDs that were successfully accepted.      |
+| `failed_documents`  | List of documents that failed to be accepted, with failure messages. |
+
+**HTTP Status 422 (Unprocessable Entity)**
+
+This response occurs when the provided data is missing or invalid.
+
+### Notes
+- Ensure the request body contains all required fields for document acceptance.
+- The endpoint returns lists of accepted and failed documents, along with any failure messages.
