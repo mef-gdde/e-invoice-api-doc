@@ -27,7 +27,7 @@ Authorization: Basic base64encode({clientId:clientSecret})
 Construct the URL to initiate the OAuth flow:
 
 ```plaintext
-{BaseURL}/connect?client_id={client_id}&redirect_url={redirect_url}&state={state}
+{BaseURL}/connect?client_id={client_id}&redirect_url={encoded_redirect_url}&state={state}
 ```
 
 ### Parameters
@@ -36,8 +36,36 @@ Construct the URL to initiate the OAuth flow:
 |------------------|---------------------------------------------------|----------|
 | `BaseURL`        | The base URL of the API                           | Yes      |
 | `client_id`      | The client's unique identifier                    | Yes      |
-| `redirect_url`   | URL to redirect after authentication              | Yes      |
+| `encoded_redirect_url`   | URL to redirect after authentication. Must be URL encoded              | Yes      |
 | `state`          | A unique state to maintain state between redirects| No      |
+
+
+### Example URL Encoding
+
+Suppose your redirect URL is:
+
+```plaintext
+https://example.com/callback?param1=value1&param2=value2
+```
+
+After URL encoding, it becomes:
+
+```plaintext
+https%3A%2F%2Fexample.com%2Fcallback%3Fparam1%3Dvalue1%26param2%3Dvalue2
+```
+
+### Complete Example
+
+Using the encoded redirect URL in the OAuth flow URL:
+
+```plaintext
+https://api.example.com/connect?client_id=your_client_id&redirect_url=https%3A%2F%2Fexample.com%2Fcallback%3Fparam1%3Dvalue1%26param2%3Dvalue2&state=your_unique_state
+```
+
+### Note
+
+Ensure that the `redirect_url` is URL-encoded to handle special characters properly. This allows the API to correctly parse the redirect URL.
+
 
 ## Step 2: Redirect Handling
 
