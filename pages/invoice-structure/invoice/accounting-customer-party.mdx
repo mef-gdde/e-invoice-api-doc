@@ -13,7 +13,31 @@ Represents the accounting customer party.
 ```xml
 <cac:AccountingCustomerParty>
     <cac:Party>
-        ...
+      <cac:PartyName>
+        <cbc:Name>នំបុ័ងសៀមរាម</cbc:Name>
+      </cac:PartyName>
+      <cac:PostalAddress>
+
+        <cbc:StreetName>Siem Reap</cbc:StreetName>
+        <cbc:CityName>Siem Reap</cbc:CityName>
+        <cac:Country>
+          <cbc:IdentificationCode>KH</cbc:IdentificationCode>
+        </cac:Country>
+      </cac:PostalAddress>
+      <cac:PartyTaxScheme>
+        <cbc:CompanyID>K008-0000001</cbc:CompanyID>
+        <cac:TaxScheme>
+          <cbc:ID>VAT</cbc:ID>
+        </cac:TaxScheme>
+      </cac:PartyTaxScheme>
+      <cac:PartyLegalEntity>
+        <cbc:RegistrationName languageID="en">Nom Pang Siem Reap</cbc:RegistrationName>
+        <cbc:CompanyID>0005000001</cbc:CompanyID>
+      </cac:PartyLegalEntity>
+      <cac:Contact>
+        <cbc:Telephone>+85503442333</cbc:Telephone>
+        <cbc:ElectronicMail>nompange_siemreap@gmail.com</cbc:ElectronicMail>
+      </cac:Contact>
     </cac:Party>
-</cac:AccountingCustomerParty>
+  </cac:AccountingCustomerParty>
 ```
