@@ -4,7 +4,7 @@
 This endpoint is used to list CamInvoice member information by searching for businesses.
 
 ```http
-GET {BaseURL}/api/v1/businesses?keyword={keyword}&limit={limit}
+GET {BaseURL}/api/v1/business?keyword={keyword}&limit={limit}
 Content-Type: application/json
 Authorization: "Bearer {access_token}"
 ```
@@ -31,4 +31,4 @@ Response Array of Business where Business field describe below
 |---------|------------------------------------------------|
 | moc_id  | A Ministry of Commerce's single ID |
 | company_name_en  | Name in English |
-| moc_id  | Name in Khmer |
+| company_name_kh  | Name in Khmer |
