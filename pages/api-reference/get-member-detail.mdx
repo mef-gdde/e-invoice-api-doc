@@ -1,11 +1,11 @@
 
-# CamInvoice Member Detail
+# Get Member Detail
 
 ## Description
-This endpoint is used to retrieve detailed information about a specific business identified by its Ministry of Commerce (MoC) ID.
+This endpoint is used to retrieve detailed information about a specific business identified by their CamInvoice ID (endpoint_id).
 
 ```http
-GET {BaseURL}/api/v1/business/{moc_id}
+GET {BaseURL}/api/v1/business/{endpoint_id}
 Content-Type: application/json
 Authorization: Bearer {access_token}
 ```
@@ -20,7 +20,7 @@ Authorization: Bearer {access_token}
 
 | Parameter | Type   | Description                                                 | Required |
 |-----------|--------|-------------------------------------------------------------|----------|
-| `moc_id`  | String | The unique identification number assigned by the Ministry of Commerce | Yes      |
+| `endpoint_id`  | String | The main identifier of this entity (CamInvoice ID). (e.g. KHUID00001234). | Yes      |
 
 ### Response
 
@@ -28,6 +28,7 @@ Authorization: Bearer {access_token}
 
 ```json
 {
+  "endpoint_id": "KHUID00001324",
   "moc_id": "033423",
   "company_name_en": "Expresso Co ltd",
   "company_name_kh": "អុិចសប្រេសូ",
@@ -37,7 +38,9 @@ Authorization: Bearer {access_token}
   "city": "Phnom Penh",
   "country": "KH",
   "phone_number": "+85544433422",
-  "email": "phenpani@gmail.com"
+  "email": "johndoe@mail.com",
+  "is_government": false,
+  "entity_id": null
 }
 ```
 
@@ -46,22 +49,23 @@ Authorization: Bearer {access_token}
 
 | Field Name            | Description                                                           |
 |-----------------------|-----------------------------------------------------------------------|
+|`endpoint_id`          |  The main identifier of this entity (CamInvoice ID). (e.g. KHUID00001234). |
 | `moc_id`              | The unique identification number assigned to the company by the Ministry of Commerce. |
 | `company_name_en`     | The official name of the company in English.                          |
 | `company_name_kh`     | The official name of the company in Khmer.                            |
 | `tin`                 | The Tax Identification Number (TIN) of the company.                   |
 | `date_of_incorporation`| The date when the company was officially incorporated.                |
-| `business_type`       | The type of business the company is engaged in.                       |
 | `city`                | The city where the company is located.                                |
 | `country`             | The country code where the company is located.                        |
 | `phone_number`        | The phone number of the company.                                      |
 | `email`               | The email address associated with the company.                        |
-
+| `is_government`       | A flag indicating whether the entity is a government.                  |
+| `entity_id`           | The government budget entity ID if the organization is part of the government.|
 **HTTP Status 404 (Not Found)**
 
-This response occurs when the specified MoC ID does not exist.
+This response occurs when the specified endpoint_id does not exist.
 
 ### Notes
 - Ensure the client handles the retrieval and display of business details appropriately.
-- The endpoint returns detailed information about a business identified by its MoC ID.
+- The endpoint returns detailed information about a business identified by their endpoint_id.
 

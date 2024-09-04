@@ -1,0 +1,92 @@
+# Update Document Status
+
+## Description
+This endpoint is used to update the status of documents.
+
+```http
+PUT {BaseURL}/api/v1/document/status
+Content-Type: application/json
+Authorization: Bearer {access_token}
+{
+    "documents": [
+        "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+        "33444323-e78b-4396-87bb-234232344423",
+        "24442432-e78b-4396-87bb-334553344533"
+    ],
+    "status": "ACCEPTED"
+}
+```
+
+### Method 
+`PUT`
+
+### Headers
+- **Content-Type**: `application/json`
+- **Authorization**: `Bearer {access_token}`
+
+### Request Parameters
+
+| Field      | Type       | Description                                    | Required |
+|------------|------------|------------------------------------------------|----------|
+| `documents`| string[]   | List of document IDs to update the status for. | Yes      |
+| `status`   | string     | The new status for the documents.              | Yes      |
+
+### Status Values
+
+| Status                    | Description                                                                                     |
+|---------------------------|-------------------------------------------------------------------------------------------------|
+| `PENDING`                 | The invoice has been created but not yet acknowledged.                                          |
+| `ACKNOWLEDGED`            | The invoice has been acknowledged but not yet processed.                                        |
+| `IN_PROCESS`              | The invoice is currently being processed.                                                       |
+| `UNDER_QUERY`             | The invoice has some issues or queries and is being reviewed.                                   |
+| `CONDITIONALLY_ACCEPTED`  | The invoice is accepted with conditions that need to be fulfilled.                              |
+| `ACCEPTED`                | The invoice has been fully accepted and is awaiting payment.                                    |
+| `REJECTED`                | The invoice has been rejected and will not be processed further.                                |
+| `PAID`                    | The invoice has been paid in full.                                                              |
+
+### Example Request Body
+
+```json
+{
+    "documents": [
+        "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+        "33444323-e78b-4396-87bb-234232344423",
+        "24442432-e78b-4396-87bb-334553344533"
+    ],
+    "status": "ACCEPTED"
+}
+```
+
+### Response
+
+**HTTP Status 200 (OK)**
+
+```json
+{
+    "updated_documents": [
+        "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+        "33444323-e78b-4396-87bb-234232344423"
+    ],
+    "failed_documents": [
+        {
+            "document_id": "24442432-e78b-4396-87bb-334553344533",
+            "message": "Cannot change status from PAID to ACCEPTED"
+        }
+    ]
+}
+```
+
+**Response Fields**
+
+| Field               | Description                                                              |
+|---------------------|--------------------------------------------------------------------------|
+| `updated_documents` | List of document IDs that were successfully updated to the new status.   |
+| `failed_documents`  | List of documents that failed to be updated, with failure messages.      |
+
+**HTTP Status 422 (Unprocessable Entity)**
+
+This response occurs when the provided data is missing or invalid.
+
+### Notes
+- Ensure that the request body contains all required fields, and that the status transition follows the defined rules.
+- The endpoint returns lists of updated and failed documents, along with any failure messages.
