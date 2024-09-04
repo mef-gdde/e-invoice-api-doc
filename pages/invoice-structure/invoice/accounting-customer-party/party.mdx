@@ -11,7 +11,7 @@ The accounting customer party.
 
 | Data Field                                             | Occurrence | Definition                                                                                |
 | ------------------------------------------------------ | :--------: | ----------------------------------------------------------------------------------------- |
-| [cbc:EndpointID](./party/endpoint-id.mdx)              |   [0..1]   | An identifier for the end point of the routing service (e.g., MOC Single IDBCursor, VAT). |
+| [cbc:EndpointID](./party/endpoint-id.mdx)              |   [1..1]   | The main identifier of this entity (CamInvoice ID). (e.g. KHUID00001234). |
 | [cac:PartyName](./party/party-name.mdx)                |   [០..1]   | A name for this party. In our case, the business's khmer name.                            |
 | [cac:PostalAddress](./party/postal-address.mdx)        |   [1..1]   | The party's postal address.                                                               |
 | [cac:PartyTaxScheme](./party/party-tax-scheme.mdx)     |   [1..1]   | A tax scheme applying to this party.                                                      |
@@ -22,7 +22,7 @@ The accounting customer party.
 
 ```xml
   <cac:Party>
-    <cbc:EndpointID>khuid00001234</cbc:EndpointID>
+    <cbc:EndpointID>KHUID00001234</cbc:EndpointID>
       <cac:PartyName>
         <cbc:Name>អង្ករបាត់ដំបង</cbc:Name>
       </cac:PartyName>
