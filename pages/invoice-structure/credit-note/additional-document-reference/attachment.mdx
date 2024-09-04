@@ -1,0 +1,26 @@
+# cac:Attachment
+Represents an attachment containing a document or an external reference to a document.
+
+## About
+* Occurrence: [0..1]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child Elements
+
+| Data Field                          | Occurrence |                         Definition                          |
+|-------------------------------------|:----------:|-------------------------------------------------------------|
+| [cbc:EmbeddedDocumentBinaryObject](./attachment/embedded-document-binary-object.mdx)  |   [0..1]   | A binary large object containing an attached document.       |
+| [cac:ExternalReference](./attachment/external-reference.mdx)             |   [0..1]   | A reference to an attached document that is external to the document(s) being exchanged. |
+
+
+## Example
+```xml
+<cac:Attachment>
+   <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="document.pdf">
+      JVBERi0xLjQKJcTl8uXrp/Og0MTGCjQgMCBvYmouIExldmVsIDEgICAgICAgICAx...
+   </cbc:EmbeddedDocumentBinaryObject>
+   <cac:ExternalReference>
+      <cbc:URI>https://www.example.com/sample.html</cbc:URI>
+   </cac:ExternalReference>
+</cac:Attachment>
+```

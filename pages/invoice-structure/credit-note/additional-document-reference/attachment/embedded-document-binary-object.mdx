@@ -1,0 +1,21 @@
+# cbc:EmbeddedDocumentBinaryObject
+Represents a binary object embedded in the document, typically used for attachments such as PDFs or other file types.
+
+## About
+* Occurrence: [0..1]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
+
+
+## Attributes
+| Name              | Occurrence | Description                                                         | 
+|-------------------|:----------:|---------------------------------------------------------------------|
+| `filename`        |   [0..1]   | The filename of the binary object.                                  | 
+| `mimeCode`        |   [1..1]   | The MIME type of the binary object.                                 | 
+
+
+## Example
+```xml
+<cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="document.pdf">
+    UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi...
+</cbc:EmbeddedDocumentBinaryObject>
+```

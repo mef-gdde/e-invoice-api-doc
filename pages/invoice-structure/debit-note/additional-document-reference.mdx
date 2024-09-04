@@ -1,0 +1,27 @@
+# cac:AdditionalDocumentReference
+A reference to an additional document associated with this document.
+
+## About
+* Occurence: [0..n]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child Elements
+| Data Field        | Occurrence |                          Definition |
+|-----------------------|:------------:|-----------------------------------|
+| [cbc:ID](./additional-document-reference/id.mdx)| [1..1] | An identifier of the supporting document. |
+| [cbc:DocumentDescription](./additional-document-reference/document-description.mdx) | [0..1] | A description of the supporting document. |
+| [cac:Attachment](./additional-document-reference/attachment.mdx) | [0..1] |  The referenced document as an attachment |
+
+## Example 
+```xml 
+<cac:AdditionalDocumentReference>
+    <cbc:ID>PO-12345</cbc:ID>
+    <cbc:DocumentDescription>Purchase Order</cbc:DocumentDescription>
+    <cac:Attachment>
+        <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="PurchaseOrder12345.pdf">
+            JVBERi0xLjQKJcTl8uXrp/Og0MTGCjQgMCBvYmouIExldmVsIDEgICAgICAgICAx
+            ...
+        </cbc:EmbeddedDocumentBinaryObject>
+    </cac:Attachment>
+</cac:AdditionalDocumentReference>
+```

@@ -4,7 +4,7 @@
     "due-date": "DueDate",
     "invoice-type-code": "InvoiceTypeCode",
     "document-currency-code": "DocumentCurrencyCode",
-    
+    "additional-document-reference": "AdditionalDocumentReference",
     "accounting-supplier-party": "AccountingSupplierParty",
     "accounting-customer-party": "AccountingCustomerParty",
     "allowance-charge": "AllowanceCharge",
