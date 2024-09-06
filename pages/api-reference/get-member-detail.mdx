@@ -34,12 +34,11 @@ Authorization: Bearer {access_token}
   "company_name_kh": "អុិចសប្រេសូ",
   "tin": "K001-3333333",
   "date_of_incorporation": null,
-  "business_type": null,
+  "entity_type": 'PRIVATE_SECTOR',
   "city": "Phnom Penh",
   "country": "KH",
   "phone_number": "+85544433422",
   "email": "johndoe@mail.com",
-  "is_government": false,
   "entity_id": null
 }
 ```
@@ -59,7 +58,7 @@ Authorization: Bearer {access_token}
 | `country`             | The country code where the company is located.                        |
 | `phone_number`        | The phone number of the company.                                      |
 | `email`               | The email address associated with the company.                        |
-| `is_government`       | A flag indicating whether the entity is a government.                  |
+| `entity_type  `       | The type of an entity that can either be private or public sector            |
 | `entity_id`           | The government budget entity ID if the organization is part of the government.|
 
 **HTTP Status 404 (Not Found)**
