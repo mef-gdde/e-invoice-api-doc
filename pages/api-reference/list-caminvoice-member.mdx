@@ -30,6 +30,10 @@ Response Array of Business where Business field describe below
 | Field   | Description                                    |
 |---------|------------------------------------------------|
 | endpoint_id | The main identifier of an entity or CamInvoice ID |
-| moc_id  | A Ministry of Commerce's single ID |
-| company_name_en  | Name in English |
-| company_name_kh  | Name in Khmer |
+| moc_id  | A Ministry of Commerce's single ID. This field is null when the entity is a government |
+| tin                 | The Tax Identification Number (TIN) of an entity.                   |
+| company_name_en  | Entity Name in English |
+| company_name_kh  | Entity Name in Khmer |
+| entity_type         | The type of an entity that can either be private or public sector            |
+| entity_id          | The government budget entity ID if the organization is part of the government. This field is null when the entity is a business|
+
