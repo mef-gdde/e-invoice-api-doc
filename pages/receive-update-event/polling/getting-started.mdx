@@ -1,0 +1,53 @@
+# Getting Started: Polling Requests
+
+## Endpoint Description
+This endpoint allows you to poll for new event updates without relying on webhook notifications. You can periodically query the endpoint to retrieve any documents that have been updated since your last sync.
+
+### Request Example
+
+```bash
+GET {baseUrl}/api/v1/document/poll?last_synced_at=2024-06-01T01:00:00
+Content-Type: application/json
+Authorization: "Bearer {access_token}"
+```
+
+### Request Parameters
+
+| Key             | Required | Type   | Description                                              |
+|-----------------|----------|--------|----------------------------------------------------------|
+| `last_synced_at`| No       | String | The timestamp of the last time events were synced or polled.|
+
+## Success Response
+
+The response contains an array of document objects. Each document in the array includes the following fields:
+
+| Key          | Description                                                |
+|--------------|------------------------------------------------------------|
+| `document_id`| The unique identifier of the document in CamInvoice.        |
+| `updated_at` | The timestamp when the document was last updated.           |
+| `type`       | The event type, indicating whether the document was "SEND" or "RECEIVE". |
+
+**Note:** Upon receiving a `document_id`, you can retrieve the XML version of the document via [Download XML document](/api-reference/download-document-XML).
+
+## Error Response
+
+If the request fails, you may receive an error response like this:
+
+**HTTP Status Code: 401 Unauthorized**
+
+| Key                | Description                                                           |
+|--------------------|-----------------------------------------------------------------------|
+| `error`            | The error code indicating what went wrong.                            |
+| `error_description`| Describes the issue, such as "Invalid client credentials" if authentication fails.|
+
+## Example Usage
+
+You can use `curl` to poll for updated documents:
+
+```bash
+curl "{baseUrl}/api/v1/document/poll?last_synced_at=2024-06-01T01:00:00" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {access_token}"
+```
+
+This approach serves as an alternative to using webhooks for event notifications, allowing you to periodically check for updates on your own schedule.

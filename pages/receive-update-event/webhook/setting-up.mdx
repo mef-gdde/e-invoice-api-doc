@@ -1,32 +1,33 @@
 
 # Setting Up Webhook
 
-## Endpoint Description
+## Description
 This endpoint allows you to configure a webhook to receive notifications for certain events.
 
 ```bash
 POST {baseUrl}/api/v1/configuration/configure-webhook
 Content-Type: application/json
-Authorization: Basic {encodedClientId:clientSecret}
+Authorization: Basic base64encode({clientId:clientSecret})
 {
-    "moc_id": "exampleID",
+    "endpoint_id": "KHUID00001234",
     "webhook_url": "https://example.com/webhook"
 }
 ```
 
-## Request Details
+### Method 
+`POST`
 
 ### Headers
 
 - **Content-Type**: `application/json`
-- **Authorization**: Basic Auth `clientId:clientSecret`
-  - The `clientId` and `clientSecret` should be base64 encoded.
+- **Authorization**: `Basic base64encode({clientId:clientSecret})`
+  - The `clientId:clientSecret` should be base64 encoded.
 
 ### Payload
 
 | Key          | Required | Type   | Description                                 |
 |--------------|----------|--------|---------------------------------------------|
-| `moc_id`     | No      | String | The ID of the module configuration. If no id modify will apply to all          |
+| `endpoint_id`     | No      | String | The main identifier of this entity (CamInvoice ID). If no endpoint_id is provided, modification will be applied to all  |
 | `webhook_url`| Yes      | String | The URL to which notifications will be sent.|
 
 ## Success Response
@@ -55,11 +56,11 @@ curl -X POST "{baseUrl}/webhook/" \
   -H "Content-Type: application/json" \
   -H "Authorization: Basic $(echo -n '{clientId}:{clientSecret}' | base64)" \
   -d '{
-        "moc_id": "exampleID",
+        "endpoint_id": "KHUID00001234",
         "webhook_url": "https://example.com/webhook"
       }'
 ```
 
 ## Notes
 - Ensure that the `webhook_url` is accessible from the server sending the webhook.
-- The provided `moc_id` should correspond to a valid module configuration.
+- The provided `endpoint_id` should correspond to a valid module configuration.

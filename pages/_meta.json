@@ -2,7 +2,7 @@
   "index": "Introduction",
   "getting-started": "Getting Started",
   "api-reference": "API Reference",
-  "receive-update-event": "Receive Update Event",
+  "receive-update-event": "Receive Update Events",
   "invoice-structure": "Invoice Structure",
   "data-type": "Data Types"
 }

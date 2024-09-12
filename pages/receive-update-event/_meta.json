@@ -1,5 +1,4 @@
 {
-    "index": "Getting Start",
-    "setting-up": "Setting Up Start",
-    "polling-request": "Polling Request"
+    "webhook": "Webhook",
+    "polling": "Polling Requests"
 }

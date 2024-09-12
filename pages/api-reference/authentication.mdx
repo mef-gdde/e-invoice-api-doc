@@ -10,7 +10,7 @@ import {Callout, Bleed} from 'nextra-theme-docs'
 ```http
 POST {BaseURL}/api/v1/auth/token
 Content-Type: application/json
-Authorization: Basic encoded({ClientId:clientSecret})
+Authorization: Basic base64encode({clientId:clientSecret})
 {
   "refresh_token": "{refreshToken}"
 }

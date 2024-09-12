@@ -1,0 +1,67 @@
+# Webhook Event
+
+
+
+## Doucument "SENT" Event
+This event is triggered when a document is sent to the customer.
+
+### Webhook Event Payload
+
+| Field              | Description                                          |
+|--------------------|------------------------------------------------------|
+| type               | The [Event Type](/data-type/event-type).                                   |
+| document_id        | The unique identifier of the document.               |
+
+
+
+### Example Event Payload
+```json
+{
+    "type": "DOCUMENT.RECEIVED",
+    "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+}
+```
+
+
+## Doucument "RECEIVED" Event
+This event is triggered when a document has been sent and successfully validated. It indicates that you are the receiver of the document.
+
+### Webhook Event Payload
+
+| Field              | Description                                          |
+|--------------------|------------------------------------------------------|
+| type               |  The [Event Type](/data-type/event-type).                                          |
+| document_id        | The unique identifier of the document.               |
+
+**Note**: Upon receiving the **document_id**, you can retrieve the XML version of the document via Download XML document.
+
+### Example Event Payload
+```json
+{
+    "type": "DOCUMENT.SENT",
+    "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+}
+```
+
+## Document "STATUS UPDATED" Event
+This event is sent to the supplier after the invoice status is updated by the customer.
+
+### Webhook Event Payload
+
+| Field              | Description                                          |
+|--------------------|------------------------------------------------------|
+| type               |  The [Event Type](/data-type/event-type).                 |
+| document_id        | The unique identifier of the document.               |
+| status             | The newly updated status of the invoice. Valid status can be found in [Document Status Type](/data-type/document-status)             |         
+
+### Example Event Payload
+```json
+{
+    "type": "DOCUMENT.STATUS_UPDATED",
+    "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+    "status": "ACCEPTED"
+}
+```
+
+### Note 
+- If polling is used instead of webhooks, the document status will also be available in the response body of the [Get Document Detail](/api-reference/get-document-detail) request.
