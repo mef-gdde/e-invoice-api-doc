@@ -5,7 +5,7 @@
 This endpoint allows you to configure a webhook to receive notifications for certain events.
 
 ```bash
-POST {baseUrl}/api/v1/configuration/configure-webhook
+POST {baseUrl}/api/v1/configure/configure-webhook
 Content-Type: application/json
 Authorization: Basic base64encode({clientId:clientSecret})
 {
@@ -52,7 +52,7 @@ HTTP status code: 401
 Here’s how you can use `curl` to set up the webhook:
 
 ```bash
-curl -X POST "{baseUrl}/webhook/" \
+curl -X POST "{baseUrl}/api/v1/configure/configure-webhook" \
   -H "Content-Type: application/json" \
   -H "Authorization: Basic $(echo -n '{clientId}:{clientSecret}' | base64)" \
   -d '{
