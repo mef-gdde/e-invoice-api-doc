@@ -1,6 +1,7 @@
-# cbc:TaxExclusiveAmount
 
-The monetary amount of an extended transaction line, exclusive of taxes.
+# cbc:TaxAmount
+
+The total tax amount for a particular taxation scheme.
 
 ## About
 
@@ -11,9 +12,9 @@ The monetary amount of an extended transaction line, exclusive of taxes.
 
 | Name        | Occurrence | Type        | Description                                            |
 |-------------|:----------:|-------------|--------------------------------------------------------|
-| currencyID  |   [1..1]   | xsd:string  | The identifier of the currency used in the transaction. |
+| currencyID  |   [1..1]   | xsd:string  | The identifier of the currency used for the tax amount. |
 
 ## Example
 
 ```xml
-<cbc:TaxExclusiveAmount currencyID="USD">80.00</cbc:TaxExclusiveAmount>
+<cbc:TaxAmount currencyID="KHR">25.00</cbc:TaxAmount>

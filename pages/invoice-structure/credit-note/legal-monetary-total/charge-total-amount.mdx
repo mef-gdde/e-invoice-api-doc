@@ -1,10 +1,11 @@
-# cbc:TaxExclusiveAmount
 
-The monetary amount of an extended transaction line, exclusive of taxes.
+# cbc:ChargeTotalAmount
+
+The total monetary amount of all charges.
 
 ## About
 
-- Occurrence: [1..1]
+- Occurrence: [0..1]
 - Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
 
 ## Attributes
@@ -16,4 +17,4 @@ The monetary amount of an extended transaction line, exclusive of taxes.
 ## Example
 
 ```xml
-<cbc:TaxExclusiveAmount currencyID="USD">80.00</cbc:TaxExclusiveAmount>
+<cbc:ChargeTotalAmount currencyID="USD">100.00</cbc:ChargeTotalAmount>

@@ -9,9 +9,9 @@ The total monetary amount that legally binds the parties to the transaction, cov
 
 | Data Field                                        | Occurrence | Definition |
 |---------------------------------------------------|:----------:|------------|
-| [cbc:LineExtensionAmount](./requested-monetary-total/line-extension-amount.mdx)       |   [0..1]   | The monetary amount of an extended transaction line, net of tax and settlement discounts, but inclusive of any applicable rounding amount. |
-| [cbc:TaxExclusiveAmount](./requested-monetary-total/tax-exclusive-amount.mdx)         |   [0..1]   | The monetary amount of an extended transaction line, exclusive of taxes. |
-| [cbc:TaxInclusiveAmount](./requested-monetary-total/tax-inclusive-amount.mdx)         |   [0..1]   | The monetary amount including taxes; the sum of payable amount and prepaid amount. |
+| [cbc:LineExtensionAmount](./requested-monetary-total/line-extension-amount.mdx)       |   [1..1]   | The monetary amount of an extended transaction line, net of tax and settlement discounts, but inclusive of any applicable rounding amount. |
+| [cbc:TaxExclusiveAmount](./requested-monetary-total/tax-exclusive-amount.mdx)         |   [1..1]   | The monetary amount of an extended transaction line, exclusive of taxes. |
+| [cbc:TaxInclusiveAmount](./requested-monetary-total/tax-inclusive-amount.mdx)         |   [1..1]   | The monetary amount including taxes; the sum of payable amount and prepaid amount. |
 | [cbc:AllowanceTotalAmount](./requested-monetary-total/allowance-total-amount.mdx)     |   [0..1]   | The total monetary amount of all allowances. |
 | [cbc:ChargeTotalAmount](./requested-monetary-total/charge-total-amount.mdx)           |   [0..1]   | The total monetary amount of all charges. |
 | [cbc:PrepaidAmount](./requested-monetary-total/prepaid-amount.mdx)                    |   [0..1]   | The total prepaid monetary amount. |

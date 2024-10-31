@@ -1,0 +1,5 @@
+{
+    "source-currency-code": "SourceCurrencyCode",
+    "target-currency-code": "TargetCurrencyCode",
+    "calculation-rate": "CalculationRate"
+}

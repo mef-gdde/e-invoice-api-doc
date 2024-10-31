@@ -1,0 +1,22 @@
+# cac:TaxExchangeRate
+Represents the exchange rate applicable to the tax amount in a different currency. This element is required when the document currency differs from the tax currency (KHR).
+## About
+* Occurrence: [1..1]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child Elements
+
+| Data Field                                    | Occurrence | Definition |
+|-----------------------------------------------|:----------:|------------|
+| [cbc:SourceCurrencyCode](./tax-exchange-rate/source-currency-code.mdx)        |   [1..1]   | The reference currency for this exchange rate; the currency from which the exchange is being made. |
+| [cbc:TargetCurrencyCode](./tax-exchange-rate/target-currency-code.mdx)        |   [1..1]   | The target currency for this exchange rate; the currency to which the exchange is being made. |
+| [cbc:CalculationRate](./tax-exchange-rate/calculation-rate.mdx)              |   [1..1]   | The factor/rate applied to the source currency to calculate the target currency. |
+
+## Example
+```xml
+<cac:TaxExchangeRate>
+    <cbc:SourceCurrencyCode>USD</cbc:SourceCurrencyCode>
+    <cbc:TargetCurrencyCode>KHR</cbc:TargetCurrencyCode>
+    <cbc:CalculationRate>4100</cbc:CalculationRate>
+</cac:TaxExchangeRate>
+```
