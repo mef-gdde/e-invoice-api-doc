@@ -12,20 +12,21 @@ Reference:
 ## Core Invoice Fields Definition
 | Data Field            | Occurrence |                        Definition |
 |-----------------------|:------------:|-----------------------------------|
-|[cbc:ID](./invoice/id.mdx) |	[1..1] |Unique identifier for the invoice.|
-|[cbc:IssueDate](./invoice/issue-date.mdx) |	[1..1] |Invoice issue date.
-|[cbc:DueDate](./invoice/due-date.mdx) |	[0..1] |  Free-form text pertinent to this document, conveying information that is not contained explicitly in other structures.
-|[cbc:InvoiceTypeCode](./invoice/invoice-type-code.mdx) | [0..1] |   A code signifying the type of the Invoice.
-|[cbc:DocumentCurrencyCode](./invoice/document-currency-code.mdx) |	[1..1]	|The currency in which the invoice is denominated.
-|[cac:AccountingSupplierParty](./invoice/accounting-supplier-party.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
-|[cac:AccountingCustomerParty](./invoice/accounting-customer-party.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
-|[cac:TaxExchangeRate](./invoice/tax-exchange-rate.mdx) |	[0..1] |	Exchange rate applied for tax calculation in invoices involving conversion, mandatory if document currency is not Khmer Riel(KHR).
-|[cac:AllowanceCharge](./invoice/allowance-charge.mdx) |	[0..n] |	A discount or charge that applies to the invoice on document level.
-|[cac:TaxTotal](./invoice/tax-total.mdx) |	[1..1] |		Total tax amount for each specific tax.
-|[cac:LegalMonetaryTotal](./invoice/legal-monetary-total.mdx) | [1..1] |	Total amounts for the invoice.
-|[cac:DebitNoteLine](./invoice/invoice-line.mdx) |	[1..n] |	Each individual line item of the invoice.
+|[cbc:ID](./debit-note/id.mdx) |	[1..1] |Unique identifier for the debit-note.|
+|[cbc:IssueDate](./debit-note/issue-date.mdx) |	[1..1] |Invoice issue date.
+|[cbc:Note](./debit-note/note.mdx) | [0..1] |   Free-form text pertinent to this document. Can contain reasons for Credit Note and Debit Note.
+|[cbc:BillingReference](./debit-note/billing-reference.mdx) | [1..1] | A reference to a billing document associated with this document.
+|[cac:AdditionalDocumentReference](./debit-note/additional-document-reference) | [0..n] |  A reference to an additional document associated with this document.  
+|[cbc:DocumentCurrencyCode](./debit-note/document-currency-code.mdx) |	[1..1]	|The currency in which the debit-note is denominated.
+|[cac:AccountingSupplierParty](./debit-note/accounting-supplier-party.mdx) |	[1..1] |	Party supplying the goods or services in the debit-note.
+|[cac:AccountingCustomerParty](./debit-note/accounting-customer-party.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
+|[cac:AllowanceCharge](./debit-note/allowance-charge.mdx) |	[0..n] |	A discount or charge that applies to the debit-note on document level.
+|[cac:TaxExchangeRate](./debit-note/tax-exchange-rate.mdx) |	[0..1] |	Exchange rate applied for tax calculation in debit-notes involving conversion, mandatory if document currency is not Khmer Riel(KHR).
+|[cac:TaxTotal](./debit-note/tax-total.mdx) |	[1..1] |		Total tax amount for each specific tax.
+|[cac:RequestedMonetaryTotal](./debit-note/requested-monetary-total.mdx) | [1..1] |	Total amounts for the debit-note.
+|[cac:DebitNoteLine](./debit-note/debit-note-line.mdx) |	[1..n] |	Each individual line item of the debit-note.
 
-## Sample of UBL Invoice 
+## Sample of UBL Debit Note
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <DebitNote xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"

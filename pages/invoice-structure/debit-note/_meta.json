@@ -1,14 +1,14 @@
 {   
     "id": "ID",
     "issue-date": "IssueDate",
-    "due-date": "DueDate",
-    "invoice-type-code": "InvoiceTypeCode",
+    "note": "Note",
     "document-currency-code": "DocumentCurrencyCode",
     "billing-reference": "BillingReference",
+    "additional-document-reference": "AdditionalDocumentReference",
     "accounting-supplier-party": "AccountingSupplierParty",
     "accounting-customer-party": "AccountingCustomerParty",
-    "tax-exchange-rate": "TaxExchangeRate",
     "allowance-charge": "AllowanceCharge",
+    "tax-exchange-rate": "TaxExchangeRate",
     "tax-total": "TaxTotal",
     "requested-monetary-total": "RequestedMonetaryTotal",
     "debit-note-line": "DebitNoteLine"

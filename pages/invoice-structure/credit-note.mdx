@@ -14,7 +14,9 @@ Reference:
 |-----------------------|:------------:|-----------------------------------|
 |[cbc:ID](./credit-note/id.mdx) |	[1..1] |Unique identifier for the invoice.|
 |[cbc:IssueDate](./credit-note/issue-date.mdx) |	[1..1] |Invoice issue date.
-|[cbc:BillingReference](./debit-note/billing-reference.mdx) | [1..1] | A reference to a billing document associated with this document.
+|[cbc:Note](./debit-note/note.mdx) | [0..1] |   Free-form text pertinent to this document. Can contain reasons for Credit Note and Debit Note.
+|[cbc:BillingReference](./credit-note/billing-reference.mdx) | [1..1] | A reference to a billing document associated with this document.
+|[cac:AdditionalDocumentReference](./credit-note/additional-document-reference) | [0..n] |  A reference to an additional document associated with this document.  
 |[cbc:DocumentCurrencyCode](./credit-note/document-currency-code.mdx) |	[1..1]	|The currency in which the invoice is denominated.
 |[cac:AccountingSupplierParty](./credit-note/accounting-supplier-party.mdx) |	[1..1] |	Party supplying the goods or services in the invoice.
 |[cac:AccountingCustomerParty](./credit-note/accounting-customer-party.mdx) |	[1..1] |	Party to whom the goods or services are supplied.
