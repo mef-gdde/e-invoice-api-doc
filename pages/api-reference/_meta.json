@@ -4,6 +4,7 @@
   "get-member-detail": "Get Member Detail",
   "validate-taxpayer": "Validate Business",
   "submit-document": "Submit Documents",
+  "send-document": "Send Documents",
   "list-documents": "List Documents",
   "get-document-detail": "Get Document Detail",
   "accept-document": "Accept Documents",

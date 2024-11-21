@@ -1,7 +1,7 @@
 # Send Documents
 
 ## Description
-This endpoint is used to accept documents from customers.
+This endpoint is used to send documents to the customer on CamInvoice.
 
 ```http
 POST {BaseURL}/api/v1/document/send
@@ -26,7 +26,7 @@ Authorization: Bearer {access_token}
 
 | Field            | Type     | Description                          | Required |
 |------------------|----------|--------------------------------------|----------|
-| `documents`   | string[] | List of document IDs to be sent. | Yes      |
+| `documents`   | string[] | List of CamInvoice Document IDs to be sent. | Yes      |
 
 ### Example Request Body
 
@@ -53,7 +53,7 @@ Authorization: Bearer {access_token}
     "failed_documents": [
         {
             "document_id": "24442432-e78b-4396-87bb-334553344533",
-            "failure_message": "Document not found"
+            "message": "Document not found"
         }
     ]
 }
@@ -63,13 +63,16 @@ Authorization: Bearer {access_token}
 
 | Field               | Description                                                |
 |---------------------|------------------------------------------------------------|
-| `sent_document`| List of document IDs that were successfully accepted.      |
-| `failed_documents`  | List of documents that failed to be accepted, with failure messages. |
+| `sent_documents`    | List of documents IDs that were successfully sent.         | 
+| `failed_documents`  | List of documents that failed to send with error message.  |
 
 **HTTP Status 422 (Unprocessable Entity)**
 
 This response occurs when the provided data is missing or invalid.
 
 ### Notes
-- Ensure the request body contains all required fields for document acceptance.
-- The endpoint returns lists of accepted and failed documents, along with any failure messages.
+
+- The response will include separate lists for successfully sent documents (sent_documents) and those that failed (failed_documents) with detailed error messages.
+- If a document fails to be sent (e.g., due to invalid or missing document ID), it will appear in the failed_documents list, but the rest of the documents in the request will still be processed.
+- Ensure all document IDs exist and are valid within the CamInvoice system before making the request to avoid unnecessary failures.
+- This endpoint is synchronous; the response immediately indicates the result of the operation for each document.

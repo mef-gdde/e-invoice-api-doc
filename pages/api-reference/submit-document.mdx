@@ -1,11 +1,12 @@
-# Submit Document
+# Submit Documents
 
 ## Description
-This endpoint is used to submit documents for processing.
+This endpoint is used to submit documents for validation. On success, it will return a unique ID for all documents submitted.
 
 ```http
 POST {BaseURL}/api/v1/document
 Content-Type: application/json
+Authorization: Bearer {access_token}
 
 {
     "documents": [
@@ -30,7 +31,7 @@ Content-Type: application/json
 | Field         | Type   | Description                                                        | Required |
 |---------------|--------|--------------------------------------------------------------------|----------|
 | `documents`   | Array  | An array containing document details.                              | Yes      |
-| `document_type`| String | The type of document being submitted (e.g., INVOICE).              | Yes      |
+| `document_type`| String | The type of document being submitted (e.g., INVOICE).             | Yes      |
 | `document`    | String | The UBL XML content document encoded as a Base64 string.           | Yes      |
 
 ### Example Request Body
@@ -38,6 +39,14 @@ Content-Type: application/json
 ```json
 {
     "documents": [
+        {
+            "document_type": "INVOICE",
+            "document": "PEludm9pY2UgeG1sbnM6Y2FjPSJ1cm46b2FzaXM6bmFtZXM6c3BlY2lmaWNhdGlvbjp1Ymw6c2NoZW1hOn..."
+        },
+        {
+            "document_type": "INVOICE",
+            "document": "PEludm9pY2UgeG1sbnM6Y2FjPSJ1cm46b2FzaXM6bmFtZXM6c3BlY2lmaWNhdGlvbjp1Ymw6c2NoZW1hOn..."
+        },
         {
             "document_type": "INVOICE",
             "document": "PEludm9pY2UgeG1sbnM6Y2FjPSJ1cm46b2FzaXM6bmFtZXM6c3BlY2lmaWNhdGlvbjp1Ymw6c2NoZW1hOn..."
@@ -52,14 +61,22 @@ Content-Type: application/json
 
 ```json
 {
-    "data": [
+    "valid_documents": [
         {
+            "index": 1,
             "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
             "verification_link": "https://.../verification?data=df5dcf78-e78b-4396-87bb-2d2a44c1302e"
         },
-        {
+        {   
+            "index": 2,
             "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c13w2e",
             "verification_link": "https://.../verification?data=df5dcf78-e78b-4396-87bb-2d2a44c1302e"
+        }
+    ],
+    "failed_documents": [
+        {
+            "index": 3,
+            "message": "Error EKYB Validation"
         }
     ]
 }
@@ -67,15 +84,18 @@ Content-Type: application/json
 
 **Response Fields**
 
-| Field             | Description                                                    |
-|-------------------|----------------------------------------------------------------|
-| `document_id`     | The unique identifier assigned to the submitted document.      |
-| `verification_link`| A link for verifying the document's authenticity.             |
+| Field               | Description                                                    |
+|---------------------|----------------------------------------------------------------|
+| `valid_documents`   | List of successfully processed documents.                     |
+| `failed_documents`  | List of documents that failed validation, with error details. |
+| `index`             | The position of the document in the original request.         |
+| `document_id`       | Unique identifier of the validated document.                  |
+| `verification_link` | URL for verifying the document's authenticity.                |
+| `message`           | Error message explaining the validation failure.              |
 
 **HTTP Status 422 (Unprocessable Entity)**
 
 This response occurs when the provided data is missing or invalid.
 
 ### Notes
-- If multiple documents are submitted, the response indicates that the document processing is in progress.
-- The processing may be asynchronous, and the results will be sent via webhook.
+- Processing is asynchronous, and results will be delivered through a webhook notification.
