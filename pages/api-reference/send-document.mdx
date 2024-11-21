@@ -1,0 +1,75 @@
+# Send Documents
+
+## Description
+This endpoint is used to accept documents from customers.
+
+```http
+POST {BaseURL}/api/v1/document/send
+Content-Type: application/json
+Authorization: Bearer {access_token}
+{
+    "documents": [
+        "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+        "33444323-e78b-4396-87bb-234232344423",
+        "24442432-e78b-4396-87bb-334553344533"
+    ]
+}
+```
+### Method 
+`POST`
+
+### Headers
+- **Content-Type**: `application/json`
+- **Authorization**: `Bearer {access_token}`
+
+### Request Parameters
+
+| Field            | Type     | Description                          | Required |
+|------------------|----------|--------------------------------------|----------|
+| `documents`   | string[] | List of document IDs to be sent. | Yes      |
+
+### Example Request Body
+
+```json
+{
+    "documents": [
+        "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+        "33444323-e78b-4396-87bb-234232344423",
+        "24442432-e78b-4396-87bb-334553344533"
+    ]
+}
+```
+
+### Response
+
+**HTTP Status 200 (OK)**
+
+```json
+{
+    "sent_documents": [
+        "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+        "33444323-e78b-4396-87bb-234232344423"
+    ],
+    "failed_documents": [
+        {
+            "document_id": "24442432-e78b-4396-87bb-334553344533",
+            "failure_message": "Document not found"
+        }
+    ]
+}
+```
+
+**Response Fields**
+
+| Field               | Description                                                |
+|---------------------|------------------------------------------------------------|
+| `sent_document`| List of document IDs that were successfully accepted.      |
+| `failed_documents`  | List of documents that failed to be accepted, with failure messages. |
+
+**HTTP Status 422 (Unprocessable Entity)**
+
+This response occurs when the provided data is missing or invalid.
+
+### Notes
+- Ensure the request body contains all required fields for document acceptance.
+- The endpoint returns lists of accepted and failed documents, along with any failure messages.
