@@ -1,7 +1,7 @@
-# Revoke Connected member
+# Revoke Connected Member
 
 ## Description
-This endpoint is used to obtain a token for authentication.
+This endpoint is used to disconnect a merchant or business from their ERP system, revoking their integration and access.
 
 import React from 'react'
 import {Callout, Bleed} from 'nextra-theme-docs'
@@ -45,7 +45,5 @@ Authorization: Basic base64encode({clientId:clientSecret})
 |-------------------|---------------------------------------------------------------------------------------------|
 | message           | error message                                         |
 
-### Notes
-- The token received in the 200 response should be used as a Bearer token for subsequent requests requiring authentication.
-- Tokens expire after 900 seconds (15 minutes).
+
 
