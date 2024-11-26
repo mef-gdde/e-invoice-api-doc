@@ -1,0 +1,51 @@
+# Getting Access Token
+
+## Description
+This endpoint is used to obtain a token for authentication.
+
+import React from 'react'
+import {Callout, Bleed} from 'nextra-theme-docs'
+
+
+```http
+POST {BaseURL}/api/v1/auth/revoke
+Content-Type: application/json
+Authorization: Basic base64encode({clientId:clientSecret})
+{
+  "endpoint_id": "{endpoint_id}"
+}
+```
+
+### Method 
+`POST`
+
+### Headers
+
+- **Content-Type**: `application/json`
+- **Authorization**: `Basic base64encode({clientId:clientSecret})`
+  - The `clientId:clientSecret` should be base64 encoded.
+
+### Request Parameters
+
+| Parameter   | Description                  | Required |
+|-------------|------------------------------|----------|
+| `endpoint_id`| endpoint_id of business to revoke  | Yes      |
+
+### Success Response
+**http status code: 200**
+
+| Key         | Definition                                                                                                                     |
+|-------------|--------------------------------------------------------------------------------------------------------------------------------|
+| message       | The message after revoke                                                                                          |
+
+### Error Response 
+**http status code: 403**
+
+| Key               | Definition                                                                                  |
+|-------------------|---------------------------------------------------------------------------------------------|
+| message           | error message                                         |
+
+### Notes
+- The token received in the 200 response should be used as a Bearer token for subsequent requests requiring authentication.
+- Tokens expire after 900 seconds (15 minutes).
+

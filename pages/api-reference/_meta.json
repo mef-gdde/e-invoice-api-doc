@@ -9,5 +9,6 @@
   "get-document-detail": "Get Document Detail",
   "accept-document": "Accept Documents",
   "reject-document": "Reject Documents",
-  "update-document-status": "Update Document Status"
+  "update-document-status": "Update Document Status",
+  "revoke-member": "Revoke the connected member"
 }
