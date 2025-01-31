@@ -1,7 +1,5 @@
 # Webhook Event
 
-
-
 ## Document "SENT" Event
 This event is triggered when a document is sent to the customer.
 
@@ -23,7 +21,7 @@ This event is triggered when a document is sent to the customer.
 ```
 
 
-## Doucument "RECEIVED" Event
+## Document "RECEIVED" Event
 This event is triggered when a document has been sent and successfully validated. It indicates that you are the receiver of the document.
 
 ### Webhook Event Payload
@@ -65,3 +63,21 @@ This event is sent to the supplier after the invoice status is updated by the cu
 
 ### Note 
 - If polling is used instead of webhooks, the document status will also be available in the response body of the [Get Document Detail](/api-reference/get-document-detail) request.
+
+## Entity "REVOKED" Event
+This event is triggered when a entity disconnected.
+
+### Webhook Event Payload
+| Field              | Description                                          |
+|--------------------|------------------------------------------------------|
+| type               | The ENTITY.REVOKED view all event type [Event Type](/data-type/event-type).              |
+| endpoint_id        | The unique identifier of the document.               |
+
+### Example Event Payload
+```json
+{
+    "type": "ENTITY.REVOKED",
+    "endpoint_id": "KHUID000001",
+}
+```
+
