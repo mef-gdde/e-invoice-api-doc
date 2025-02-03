@@ -1,0 +1,18 @@
+# cac:PaymentTerms
+Represents the terms and conditions of a payment agreement between the buyer and the seller.
+
+## About
+* Occurrence: [0..1]
+* Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2
+
+## Child Elements
+
+| Data Field                          | Occurrence | Definition |
+|-------------------------------------|:----------:|------------|
+| [cbc:Note](./payment-terms/note.mdx) |   [0..1]   | A textual description of the payment terms. |
+
+## Example
+```xml
+<cac:PaymentTerms>
+    <cbc:Note>Payment due within 30 days from the invoice date.</cbc:Note>
+</cac:PaymentTerms>

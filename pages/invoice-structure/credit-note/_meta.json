@@ -7,6 +7,7 @@
     "additional-document-reference": "AdditionalDocumentReference",
     "accounting-supplier-party": "AccountingSupplierParty",
     "accounting-customer-party": "AccountingCustomerParty",
+    "payment-terms": "PaymentTerms",
     "tax-exchange-rate": "TaxExchangeRate",
     "allowance-charge": "AllowanceCharge",
     "tax-total": "TaxTotal",
