@@ -1,7 +1,7 @@
 # Webhook Event
 
-## Document "SENT" Event
-This event is triggered when a document is sent to the customer.
+## "DOCUMENT.DELIVERED" Event
+This event is triggered to supplier when a document is delivered to the customer.
 
 ### Webhook Event Payload
 
@@ -9,14 +9,16 @@ This event is triggered when a document is sent to the customer.
 |--------------------|------------------------------------------------------|
 | type               | The [Event Type](/data-type/event-type).                                   |
 | document_id        | The unique identifier of the document.               |
+| endpoint_id        | The ID of member of E-invoice            |
 
 
 
 ### Example Event Payload
 ```json
 {
-    "type": "DOCUMENT.RECEIVED",
+    "type": "DOCUMENT.DELIVERED",
     "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+    "endpoint_id": "KHUID000001",
 }
 ```
 
@@ -30,14 +32,17 @@ This event is triggered when a document has been sent and successfully validated
 |--------------------|------------------------------------------------------|
 | type               |  The [Event Type](/data-type/event-type).                                          |
 | document_id        | The unique identifier of the document.               |
+| endpoint_id        | The ID of member of E-invoice            |
+
 
 **Note**: Upon receiving the **document_id**, you can retrieve the XML version of the document via Download XML document.
 
 ### Example Event Payload
 ```json
 {
-    "type": "DOCUMENT.SENT",
+    "type": "DOCUMENT.RECEIVED",
     "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+    "endpoint_id": "KHUID000001",
 }
 ```
 
@@ -50,6 +55,7 @@ This event is sent to the supplier after the invoice status is updated by the cu
 |--------------------|------------------------------------------------------|
 | type               |  The [Event Type](/data-type/event-type).                 |
 | document_id        | The unique identifier of the document.               |
+| endpoint_id        | The ID of member of E-invoice            |
 | status             | The newly updated status of the invoice. Valid status can be found in [Document Status Type](/data-type/document-status)             |         
 
 ### Example Event Payload
@@ -57,6 +63,7 @@ This event is sent to the supplier after the invoice status is updated by the cu
 {
     "type": "DOCUMENT.STATUS_UPDATED",
     "document_id": "df5dcf78-e78b-4396-87bb-2d2a44c1302e",
+    "endpoint_id": "KHUID000001",
     "status": "ACCEPTED"
 }
 ```
