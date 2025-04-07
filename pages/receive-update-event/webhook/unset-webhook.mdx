@@ -1,0 +1,53 @@
+
+# Unset Webhook
+
+## Description
+This endpoint allows you to unset a webhook to a specified entity.
+
+```bash
+DELETE {baseUrl}/api/v1/configure/configure-webhook/:endpoint_id
+Content-Type: application/json
+Authorization: Basic base64encode({clientId:clientSecret})
+```
+
+### Method 
+`DELETE`
+
+### Headers
+
+- **Content-Type**: `application/json`
+- **Authorization**: `Basic base64encode({clientId:clientSecret})`
+  - The `clientId:clientSecret` should be base64 encoded.
+
+### Payload
+
+| Key          | Required | Type   | Description                                 |
+|--------------|----------|--------|---------------------------------------------|
+| `endpoint_id`     | No      | String | The main identifier of this entity (CamInvoice ID). If no endpoint_id is provided, modification will be applied to all  |
+
+## Success Response
+
+HTTP status code: 200
+
+| Key       | Definition                              |
+|-----------|-----------------------------------------|
+| `message` | "successful" – Indicates successful setup. |
+
+## Error Response 
+
+HTTP status code: 401
+
+| Key               | Definition                                                                          |
+|-------------------|-------------------------------------------------------------------------------------|
+| `error`           | The error code indicating the nature of the failure.                                 |
+| `error_description` | "Invalid client credentials" – Typically shown when authentication details are wrong.|
+
+## Example Usage
+
+Here’s how you can use `curl` to set up the webhook:
+
+```bash
+curl -X DELETE "{baseUrl}/api/v1/configure/configure-webhook/KHUID00001234" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Basic $(echo -n '{clientId}:{clientSecret}' | base64)" \
+```
