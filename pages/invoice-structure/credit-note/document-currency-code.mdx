@@ -1,12 +1,19 @@
-# cbc:InvoiceTypeCode
-A code signifying the type of the invoice.
+# cbc:DocumentCurrencyCode
+An identifier representing the default currency for this document, selected from the [ISO 4217 code list](https://www.iban.com/currency-codes).
 
+Example: 'KHR', 'USD'.
 ## About
-* Occurrence: [0..1]
+* Occurrence: [1..1]
 * Namespace: urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2
 
 ## Attributes
 
-## Example
+## Example 1
 ```xml
-<cbc:InvoiceTypeCode>123</cbc:InvoiceTypeCode>
+<cbc:DocumentCurrencyCode>KHR</cbc:DocumentCurrencyCode>
+```
+
+## Example 2
+```xml
+<cbc:DocumentCurrencyCode>USD</cbc:DocumentCurrencyCode>
+```
