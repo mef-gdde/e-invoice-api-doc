@@ -12,7 +12,7 @@ A specific line of an invoice that describes a product or service.
 | [cbc:ID](./invoice-line/id.mdx)                              |   [1..1]   | An identifier for this invoice line. |
 | [cbc:InvoicedQuantity](./invoice-line/invoiced-quantity.mdx)  |   [1..1]   | The quantity (of items) on this invoice line. |
 | [cbc:LineExtensionAmount](./invoice-line/line-extension-amount.mdx) | [1..1] | The total amount for this invoice line, including allowance charges but net of taxes. |
-| [cac:AllowanceCharge](./invoice-line/allowance-charge.mdx)    |   [0..*]   | An allowance or charge associated with this invoice line. |
+| [cac:AllowanceCharge](./invoice-line/allowance-charge.mdx)    |   [0..n]   | An allowance or charge associated with this invoice line. |
 | [cac:TaxTotal](./invoice-line/tax-total.mdx)                  |   [0..1]   | A total amount of taxes of a particular kind applicable to this invoice line. |
 | [cac:Item](./invoice-line/item.mdx)                          |   [1..1]   | The item associated with this invoice line. |
 | [cac:Price](./invoice-line/price.mdx)                        |   [0..1]   | The price of the item associated with this invoice line. |
